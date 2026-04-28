@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloom Bar | The Theodoro Collective</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia, serif;
+background:#fffaf6;
+color:#2f2a25;
+line-height:1.6;
+}
+
+header{
+background:#ffffff;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eadfd6;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+nav a{
+margin-left:22px;
+text-decoration:none;
+color:#2f2a25;
+font-size:15px;
+}
+
+nav a:hover{
+color:#b8795b;
+}
+
+.quote-link{
+background:#2f2a25;
+color:#fff;
+padding:10px 16px;
+border-radius:30px;
+}
+
+.hero{
+padding:70px 8%;
+text-align:center;
+background:#f4e6dc;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:16px;
+}
+
+.hero p{
+max-width:720px;
+margin:auto;
+font-size:18px;
+color:#5f554e;
+}
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:40px;
+}
+
+.section-title h2{
+font-size:38px;
+margin-bottom:12px;
+}
+
+.section-title p{
+max-width:700px;
+margin:auto;
+color:#645a52;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.card{
+background:#fff;
+border:1px solid #eadfd6;
+border-radius:24px;
+padding:28px;
+box-shadow:0 10px 25px rgba(0,0,0,.04);
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:22px;
+color:#b8795b;
+margin-bottom:15px;
+font-weight:bold;
+}
+
+.card ul{
+padding-left:18px;
+margin-bottom:22px;
+}
+
+.card li{
+margin-bottom:8px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:#2f2a25;
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#b8795b;
+}
+
+.feature{
+background:#2f2a25;
+color:white;
+border-radius:32px;
+padding:50px;
+margin-top:30px;
+}
+
+.feature h2{
+font-size:34px;
+margin-bottom:14px;
+}
+
+.feature p{
+color:#eee0d6;
+max-width:800px;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid #eadfd6;
+color:#7a7068;
+font-size:14px;
+margin-top:70px;
+background:#fff;
+}
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+text-align:center;
+}
+
+nav a{
+display:inline-block;
+margin:6px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">The Theodoro Collective</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="bloom-bar.html">Bloom Bar</a>
+<a href="drink-carts.html">Drink Carts</a>
+<a href="rentals.html">Rentals</a>
+<a href="quote.html" class="quote-link">Quote</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Bloom Bar Experiences</h1>
+<p>
+Create your own bouquet experience for bridal showers, birthdays,
+baby showers, corporate events, and celebrations of all kinds.
+Guests build bouquets using curated floral stems and wraps.
+</p>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Choose Your Bloom Bar Package</h2>
+<p>
+Start with a package below, then customize with premium stems,
+custom signage, upgraded styling, or extra bouquet supplies.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Mini Bloom Bar</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Perfect for intimate gatherings</li>
+<li>Up to 12 guests</li>
+<li>Cart rental included</li>
+<li>Basic floral mix</li>
+<li>Wrap station included</li>
+</ul>
+<button onclick="addToQuote('Mini Bloom Bar',0)">Add to Quote</button>
+</div>
+
+<div class="card">
+<h3>Signature Bloom Bar</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Ideal for showers + parties</li>
+<li>Up to 24 guests</li>
+<li>Premium cart styling</li>
+<li>Expanded floral selection</li>
+<li>Ribbon + bouquet wraps</li>
+</ul>
+<button onclick="addToQuote('Signature Bloom Bar',0)">Add to Quote</button>
+</div>
+
+<div class="card">
+<h3>Luxury Bloom Bar</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Best for weddings + large events</li>
+<li>Up to 40 guests</li>
+<li>Statement setup included</li>
+<li>Premium florals + filler stems</li>
+<li>Styled signage + decor</li>
+</ul>
+<button onclick="addToQuote('Luxury Bloom Bar',0)">Add to Quote</button>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="feature">
+<h2>Popular Add-Ons</h2>
+<p>
+Extra premium roses, ranunculus, peonies, custom signage,
+theme styling, delivery/setup, floral color matching,
+and upgraded cart decor can all be added to your quote.
+</p>
+</div>
+</section>
+
+<footer>
+© 2026 The Theodoro Collective
+</footer>
+
+<script>
+function addToQuote(item, price){
+
+let quote = JSON.parse(localStorage.getItem("quoteItems")) || [];
+
+quote.push({
+name:item,
+price:price
+});
+
+localStorage.setItem("quoteItems", JSON.stringify(quote));
+
+alert(item + " added to your quote.");
+}
+</script>
+
+</body>
+</html>
