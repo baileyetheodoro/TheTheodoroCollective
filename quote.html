@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Builder | The Theodoro Collective</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia, serif;
+background:#fffaf6;
+color:#2f2a25;
+line-height:1.6;
+}
+
+header{
+background:#ffffff;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eadfd6;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+nav a{
+margin-left:22px;
+text-decoration:none;
+color:#2f2a25;
+font-size:15px;
+}
+
+nav a:hover{
+color:#b8795b;
+}
+
+.quote-link{
+background:#2f2a25;
+color:#fff;
+padding:10px 16px;
+border-radius:30px;
+}
+
+.hero{
+padding:70px 8%;
+text-align:center;
+background:#f4e6dc;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:14px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+color:#5f554e;
+}
+
+.section{
+padding:70px 8%;
+max-width:1100px;
+margin:auto;
+}
+
+.quote-box{
+background:#fff;
+border:1px solid #eadfd6;
+border-radius:28px;
+padding:35px;
+box-shadow:0 10px 25px rgba(0,0,0,.04);
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 0;
+border-bottom:1px solid #f0e6df;
+}
+
+.item-name{
+font-size:18px;
+}
+
+.item-price{
+font-weight:bold;
+color:#b8795b;
+margin-right:20px;
+}
+
+.remove-btn{
+background:#2f2a25;
+color:#fff;
+border:none;
+padding:8px 14px;
+border-radius:20px;
+cursor:pointer;
+}
+
+.remove-btn:hover{
+background:#b8795b;
+}
+
+.total{
+display:flex;
+justify-content:space-between;
+margin-top:25px;
+padding-top:25px;
+border-top:2px solid #eadfd6;
+font-size:26px;
+font-weight:bold;
+}
+
+.empty{
+text-align:center;
+padding:30px;
+color:#7a7068;
+font-size:18px;
+}
+
+.form-box{
+margin-top:45px;
+background:#fff;
+border:1px solid #eadfd6;
+border-radius:28px;
+padding:35px;
+}
+
+.form-box h2{
+font-size:34px;
+margin-bottom:20px;
+}
+
+input, textarea{
+width:100%;
+padding:14px;
+margin-bottom:16px;
+border:1px solid #ddd;
+border-radius:14px;
+font-size:15px;
+font-family:inherit;
+}
+
+textarea{
+height:140px;
+resize:vertical;
+}
+
+button.submit{
+width:100%;
+padding:16px;
+background:#2f2a25;
+color:white;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+}
+
+button.submit:hover{
+background:#b8795b;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid #eadfd6;
+background:#fff;
+color:#7a7068;
+margin-top:70px;
+}
+
+@media(max-width:900px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+text-align:center;
+}
+
+nav a{
+display:inline-block;
+margin:6px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.item{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+.total{
+font-size:22px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">The Theodoro Collective</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="bloom-bar.html">Bloom Bar</a>
+<a href="drink-carts.html">Drink Carts</a>
+<a href="rentals.html">Rentals</a>
+<a href="quote.html" class="quote-link">Quote</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Your Custom Quote</h1>
+<p>
+Review your selected rentals and services below.
+When ready, submit your event details and we’ll contact you.
+</p>
+</section>
+
+<section class="section">
+
+<div class="quote-box">
+<div id="quoteItems"></div>
+
+<div class="total">
+<span>Total</span>
+<span id="totalPrice">$0.00</span>
+</div>
+</div>
+
+<div class="form-box">
+<h2>Submit Inquiry</h2>
+
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="Phone Number">
+<input type="text" placeholder="Event Date">
+<input type="text" placeholder="Event Location">
+
+<textarea placeholder="Tell us about your event theme, guest count, or anything else."></textarea>
+
+<button class="submit">Submit Quote Request</button>
+</div>
+
+</section>
+
+<footer>
+© 2026 The Theodoro Collective
+</footer>
+
+<script>
+let quote = JSON.parse(localStorage.getItem("quoteItems")) || [];
+
+function renderQuote(){
+
+let container = document.getElementById("quoteItems");
+let total = 0;
+
+if(quote.length === 0){
+container.innerHTML = '<div class="empty">Your quote is currently empty.</div>';
+document.getElementById("totalPrice").innerText = "$0.00";
+return;
+}
+
+container.innerHTML = "";
+
+quote.forEach((item,index)=>{
+
+total += Number(item.price);
+
+container.innerHTML += `
+<div class="item">
+<div class="item-name">${item.name}</div>
+
+<div style="display:flex;align-items:center;">
+<div class="item-price">$${Number(item.price).toFixed(2)}</div>
+<button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+</div>
+</div>
+`;
+
+});
+
+document.getElementById("totalPrice").innerText =
+"$" + total.toFixed(2);
+}
+
+function removeItem(index){
+
+quote.splice(index,1);
+
+localStorage.setItem("quoteItems", JSON.stringify(quote));
+
+renderQuote();
+}
+
+renderQuote();
+</script>
+
+</body>
+</html>
