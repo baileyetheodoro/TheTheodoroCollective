@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rentals | The Theodoro Collective</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia, serif;
+background:#fffaf6;
+color:#2f2a25;
+line-height:1.6;
+}
+
+header{
+background:#ffffff;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eadfd6;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+nav a{
+margin-left:22px;
+text-decoration:none;
+color:#2f2a25;
+font-size:15px;
+}
+
+nav a:hover{
+color:#b8795b;
+}
+
+.quote-link{
+background:#2f2a25;
+color:white;
+padding:10px 16px;
+border-radius:30px;
+}
+
+.hero{
+padding:70px 8%;
+text-align:center;
+background:#f4e6dc;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:16px;
+}
+
+.hero p{
+max-width:760px;
+margin:auto;
+font-size:18px;
+color:#5f554e;
+}
+
+.section{
+padding:70px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:42px;
+}
+
+.section-title h2{
+font-size:38px;
+margin-bottom:12px;
+}
+
+.section-title p{
+max-width:700px;
+margin:auto;
+color:#645a52;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+
+.card{
+background:white;
+border:1px solid #eadfd6;
+border-radius:24px;
+padding:28px;
+box-shadow:0 10px 25px rgba(0,0,0,.04);
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:22px;
+color:#b8795b;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.card ul{
+padding-left:18px;
+margin-bottom:20px;
+}
+
+.card li{
+margin-bottom:8px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:#2f2a25;
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#b8795b;
+}
+
+.feature{
+background:#2f2a25;
+color:white;
+border-radius:32px;
+padding:50px;
+margin-top:30px;
+}
+
+.feature h2{
+font-size:34px;
+margin-bottom:14px;
+}
+
+.feature p{
+color:#eee0d6;
+max-width:850px;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid #eadfd6;
+color:#7a7068;
+font-size:14px;
+margin-top:70px;
+background:#fff;
+}
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+text-align:center;
+}
+
+nav a{
+display:inline-block;
+margin:6px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">The Theodoro Collective</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="bloom-bar.html">Bloom Bar</a>
+<a href="drink-carts.html">Drink Carts</a>
+<a href="rentals.html">Rentals</a>
+<a href="quote.html" class="quote-link">Quote</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Decor & Event Rentals</h1>
+<p>
+Beautiful finishing touches for showers, birthdays, weddings,
+and private events. Mix statement rentals with florals and carts
+to build a complete styled experience.
+</p>
+</section>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Rental Collection</h2>
+<p>
+Choose individual rentals or combine several pieces into a custom package.
+Perfect for photo moments, guest welcome areas, and elevated event styling.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Champagne Wall</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Display wall rental</li>
+<li>Perfect for showers + weddings</li>
+<li>Holds glasses or favors</li>
+<li>Optional floral styling</li>
+</ul>
+<button onclick="addToQuote('Champagne Wall',0)">Add to Quote</button>
+</div>
+
+<div class="card">
+<h3>Decor Pillars</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Set of statement pillars</li>
+<li>Use for cake, florals, signage</li>
+<li>Modern clean styling</li>
+<li>Great photo backdrop piece</li>
+</ul>
+<button onclick="addToQuote('Decor Pillars',0)">Add to Quote</button>
+</div>
+
+<div class="card">
+<h3>Welcome Sign Setup</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Easel or stand included</li>
+<li>Custom sign option</li>
+<li>Great entry statement piece</li>
+<li>Add florals for upgraded look</li>
+</ul>
+<button onclick="addToQuote('Welcome Sign Setup',0)">Add to Quote</button>
+</div>
+
+<div class="card">
+<h3>Faux Floral Ground Piece</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Floor floral installation</li>
+<li>Great for gifts or backdrop area</li>
+<li>Reusable faux blooms</li>
+<li>Elegant statement styling</li>
+</ul>
+<button onclick="addToQuote('Faux Floral Ground Piece',0)">Add to Quote</button>
+</div>
+
+<div class="card">
+<h3>Backdrop Frame</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Photo backdrop rental</li>
+<li>Add balloons or florals</li>
+<li>Great for photos</li>
+<li>Modern clean look</li>
+</ul>
+<button onclick="addToQuote('Backdrop Frame',0)">Add to Quote</button>
+</div>
+
+<div class="card">
+<h3>Styled Package Bundle</h3>
+<div class="price">$0.00</div>
+<ul>
+<li>Multiple rentals combined</li>
+<li>Best overall value</li>
+<li>Curated event styling</li>
+<li>Custom package pricing</li>
+</ul>
+<button onclick="addToQuote('Styled Package Bundle',0)">Add to Quote</button>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="feature">
+<h2>Need Something Custom?</h2>
+<p>
+If you have a Pinterest vision or theme in mind, contact us for custom sourcing,
+styling, florals, signage, or a full package designed around your event.
+</p>
+</div>
+</section>
+
+<footer>
+© 2026 The Theodoro Collective
+</footer>
+
+<script>
+function addToQuote(item, price){
+
+let quote = JSON.parse(localStorage.getItem("quoteItems")) || [];
+
+quote.push({
+name:item,
+price:price
+});
+
+localStorage.setItem("quoteItems", JSON.stringify(quote));
+
+alert(item + " added to your quote.");
+}
+</script>
+
+</body>
+</html>
