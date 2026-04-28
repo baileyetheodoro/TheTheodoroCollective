@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | The Theodoro Collective</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia, serif;
+background:#fffaf6;
+color:#2f2a25;
+line-height:1.6;
+}
+
+header{
+background:#ffffff;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #eadfd6;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+nav a{
+margin-left:22px;
+text-decoration:none;
+color:#2f2a25;
+font-size:15px;
+}
+
+nav a:hover{
+color:#b8795b;
+}
+
+.quote-link{
+background:#2f2a25;
+color:#fff;
+padding:10px 16px;
+border-radius:30px;
+}
+
+.hero{
+padding:70px 8%;
+text-align:center;
+background:#f4e6dc;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:14px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+color:#5f554e;
+}
+
+.section{
+padding:70px 8%;
+max-width:1100px;
+margin:auto;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+}
+
+.card{
+background:#fff;
+border:1px solid #eadfd6;
+border-radius:28px;
+padding:35px;
+box-shadow:0 10px 25px rgba(0,0,0,.04);
+}
+
+.card h2{
+font-size:34px;
+margin-bottom:16px;
+}
+
+.card p{
+color:#645a52;
+margin-bottom:18px;
+}
+
+.info-item{
+margin-bottom:18px;
+}
+
+.info-item strong{
+display:block;
+font-size:17px;
+color:#2f2a25;
+}
+
+input, textarea{
+width:100%;
+padding:14px;
+margin-bottom:16px;
+border:1px solid #ddd;
+border-radius:14px;
+font-size:15px;
+font-family:inherit;
+background:#fff;
+}
+
+textarea{
+height:150px;
+resize:vertical;
+}
+
+button{
+width:100%;
+padding:16px;
+background:#2f2a25;
+color:white;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#b8795b;
+}
+
+.notice{
+margin-top:35px;
+background:#2f2a25;
+color:white;
+border-radius:28px;
+padding:35px;
+text-align:center;
+}
+
+.notice p{
+color:#eee0d6;
+max-width:750px;
+margin:0 auto;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid #eadfd6;
+background:#fff;
+color:#7a7068;
+margin-top:70px;
+}
+
+@media(max-width:900px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+text-align:center;
+}
+
+nav a{
+display:inline-block;
+margin:6px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">The Theodoro Collective</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="bloom-bar.html">Bloom Bar</a>
+<a href="drink-carts.html">Drink Carts</a>
+<a href="rentals.html">Rentals</a>
+<a href="quote.html" class="quote-link">Quote</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Contact Us</h1>
+<p>
+Have a question, custom event idea, or want help choosing the right package?
+Send a message and we’ll follow up with next steps.
+</p>
+</section>
+
+<section class="section">
+
+<div class="contact-grid">
+
+<div class="card">
+<h2>Event Inquiry</h2>
+
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="Phone Number">
+<input type="text" placeholder="Event Date">
+<input type="text" placeholder="Event Type">
+
+<textarea placeholder="Tell us about your event, theme, guest count, and what you are interested in."></textarea>
+
+<button type="button" onclick="submitMessage()">Send Message</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Let’s Create Something Beautiful</h2>
+
+<p>
+The Theodoro Collective offers bloom bars, drink carts, event rentals,
+and styled details for showers, birthdays, weddings, and private events.
+</p>
+
+<div class="info-item">
+<strong>Service Area</strong>
+<span>St. Louis / St. Charles, Missouri area</span>
+</div>
+
+<div class="info-item">
+<strong>Email</strong>
+<span>your-email@example.com</span>
+</div>
+
+<div class="info-item">
+<strong>Instagram</strong>
+<span>@thetheodorocollective</span>
+</div>
+
+<div class="info-item">
+<strong>Best For</strong>
+<span>Showers, birthdays, private parties, weddings, and styled gatherings</span>
+</div>
+
+<p>
+Replace the placeholder email and Instagram handle with your real business
+contact details before publishing.
+</p>
+</div>
+
+</div>
+
+<div class="notice">
+<p>
+For the fastest planning process, use the quote builder first so we can see
+which rentals and add-ons you are interested in.
+</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 The Theodoro Collective
+</footer>
+
+<script>
+function submitMessage(){
+alert("Thank you! Your message has been noted. Please connect this form to Netlify Forms or another form service before going live.");
+}
+</script>
+
+</body>
+</html>
