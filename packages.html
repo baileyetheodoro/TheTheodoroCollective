@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Packages | Theodoro Collective</title>
+
+<style>
+:root{
+  --black:#111;
+  --white:#fff;
+  --ivory:#f7f4ef;
+  --sage:#8b9a84;
+  --rose:#d8b4a6;
+  --taupe:#c8b9aa;
+  --gray:#666;
+  --border:#e7e1d8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial, sans-serif;
+  color:var(--black);
+  background:var(--white);
+  line-height:1.6;
+}
+
+h1,h2,h3,.logo{
+  font-family:Georgia, serif;
+  font-weight:500;
+}
+
+h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.05;}
+h2{font-size:clamp(2rem,4vw,3rem);}
+h3{font-size:1.3rem;}
+
+p{color:var(--gray);}
+a{text-decoration:none;color:inherit;}
+
+.announcement{
+  background:var(--black);
+  color:var(--white);
+  text-align:center;
+  padding:.6rem;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 5%;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+.logo{font-size:1.3rem;}
+
+.nav{
+  display:flex;
+  gap:1rem;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.nav a:hover{color:var(--sage);}
+
+.nav-toggle{
+  display:none;
+  font-size:1.6rem;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.page-hero{
+  padding:6rem 5%;
+  background:
+    linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.82)),
+    url("https://images.pexels.com/photos/4522916/pexels-photo-4522916.jpeg");
+  background-size:cover;
+  background-position:center;
+}
+
+.page-hero-content{
+  max-width:780px;
+}
+
+.page-hero p{
+  margin-top:1.2rem;
+  max-width:640px;
+  font-size:1.05rem;
+}
+
+.section-padding{padding:5rem 5%;}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.narrow{
+  max-width:720px;
+  margin:auto;
+  text-align:center;
+}
+
+.alt-bg{background:var(--ivory);}
+
+.eyebrow{
+  color:var(--sage);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.75rem;
+  margin-bottom:1rem;
+}
+
+.button-row{
+  margin-top:2rem;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.button{
+  padding:.9rem 1.3rem;
+  border:1px solid var(--black);
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  display:inline-block;
+  transition:.2s ease;
+  cursor:pointer;
+  background:transparent;
+}
+
+.button:hover{transform:translateY(-2px);}
+
+.button.dark{
+  background:var(--black);
+  color:white;
+}
+
+.package-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  margin-top:2.5rem;
+}
+
+.package-card{
+  border:1px solid var(--border);
+  background:white;
+  padding:2rem;
+  transition:.2s ease;
+  position:relative;
+}
+
+.package-card:hover{
+  transform:translateY(-5px);
+  border-color:black;
+}
+
+.package-label{
+  color:var(--rose);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.72rem;
+  margin-bottom:.8rem;
+  display:block;
+}
+
+.price{
+  margin-top:1rem;
+  font-weight:bold;
+  color:var(--black);
+}
+
+.select-package{
+  margin-top:1.5rem;
+  width:100%;
+}
+
+.addons-section{
+  display:none;
+}
+
+.addons-section.active{
+  display:block;
+}
+
+.addon-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-top:2rem;
+}
+
+.addon-card{
+  border:1px solid var(--border);
+  background:white;
+  padding:1.5rem;
+  transition:.2s ease;
+}
+
+.addon-card:hover{
+  border-color:black;
+  transform:translateY(-3px);
+}
+
+.addon-card h3{
+  font-size:1.05rem;
+}
+
+.addon-card p{
+  font-size:.9rem;
+  margin-top:.5rem;
+}
+
+.addon-card button{
+  margin-top:1rem;
+  width:100%;
+}
+
+.quote-preview{
+  display:none;
+  position:sticky;
+  bottom:0;
+  background:var(--black);
+  color:white;
+  padding:1rem 5%;
+  z-index:90;
+  border-top:1px solid rgba(255,255,255,.2);
+}
+
+.quote-preview.active{
+  display:block;
+}
+
+.quote-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.quote-inner p{
+  color:#ddd;
+  font-size:.9rem;
+}
+
+.quote-items{
+  color:white;
+  font-size:.85rem;
+}
+
+.info-band{
+  background:var(--ivory);
+  border:1px solid var(--border);
+  padding:2.5rem;
+  margin-top:3rem;
+  text-align:center;
+}
+
+footer{
+  background:black;
+  color:white;
+  padding:3rem 5%;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+
+.footer-brand h2{font-size:1.6rem;}
+
+.footer-brand p{
+  color:#ccc;
+  margin-top:.5rem;
+  font-size:.85rem;
+}
+
+.footer-links{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links a{
+  color:white;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
+
+.footer-links a:hover{
+  background:var(--sage);
+  border-color:var(--sage);
+}
+
+.footer-links svg{
+  width:18px;
+  height:18px;
+  fill:currentColor;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:2rem auto 0;
+  padding-top:1rem;
+  border-top:1px solid rgba(255,255,255,.2);
+  color:#aaa;
+  font-size:.75rem;
+}
+
+@media(max-width:850px){
+  .nav{display:none;}
+
+  .nav.open{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:white;
+    padding:1rem 5%;
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav-toggle{display:block;}
+
+  .package-grid,
+  .addon-grid{
+    grid-template-columns:1fr;
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+  .button{
+    text-align:center;
+  }
+
+  .quote-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .quote-inner .button{
+    width:100%;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">Build Your Custom Event Package</div>
+
+<header class="site-header">
+  <div class="logo">Theodoro Collective</div>
+
+  <button class="nav-toggle">☰</button>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="florals.html">Florals</a>
+    <a href="carts.html">Cart Rentals</a>
+    <a href="packages.html">Packages</a>
+    <a href="quote.html">Quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="eyebrow">Custom Packages</p>
+    <h1>Start with a base package, then make it yours.</h1>
+
+    <p>
+      Choose the foundation for your event first. Once selected, add-ons will appear
+      so you can customize your setup with florals, signage, drink details, styling,
+      and event accents.
+    </p>
+
+    <div class="button-row">
+      <a class="button dark" href="#packages">Choose a Package</a>
+      <a class="button" href="contact.html">Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="packages">
+  <div class="container narrow">
+    <p class="eyebrow">Step One</p>
+    <h2>Choose your foundation.</h2>
+    <p>
+      Select one base package to begin. Add-ons will unlock after your selection.
+    </p>
+  </div>
+
+  <div class="container package-grid">
+    <div class="package-card">
+      <span class="package-label">Florals</span>
+      <h3>Bloom Bar Experience</h3>
+      <p>
+        A floral-focused setup for bouquet building, showers, birthdays, and guest experiences.
+      </p>
+      <p class="price">Packages starting at 
+      $0.00</p>
+      <button class="button select-package" data-package="Bloom Bar Experience" data-price="0">Select Package</button>
+    </div>
+
+    <div class="package-card">
+      <span class="package-label">Carts</span>
+      <h3>Drink Cart Rental</h3>
+      <p>
+        A styled cart foundation for mocktails, mimosas, coffee, cocoa, or other beverage moments.
+      </p>
+      <p class="price">Packages starting at $0.00</p>
+      <button class="button select-package" data-package="Drink Cart Rental" data-price="0">Select Package</button>
+    </div>
+
+    <div class="package-card">
+      <span class="package-label">Rentals</span>
+      <h3>Standalone Rentals</h3>
+      <p>
+       Curated event extras including faux florals, signage, styling pieces,
+  and decorative rentals available to layer into your existing celebration setup.
+      </p>
+      <p class="price">Packages starting at $0.00</p>
+      <button class="button select-package" data-package="Styled Display Package" data-price="0">Select Package</button>
+    </div>
+  </div>
+
+  <div class="container info-band">
+    <p class="eyebrow">Not Sure?</p>
+    <h2>Packages are just a starting point.</h2>
+    <p>
+      If your event needs a mix of florals, carts, and rentals, select the package
+      that feels closest. You can share custom notes when requesting your quote.
+    </p>
+  </div>
+</section>
+
+<section class="section-padding alt-bg addons-section" id="addons">
+  <div class="container narrow">
+    <p class="eyebrow">Step Two</p>
+    <h2>Customize with add-ons.</h2>
+    <p>
+      Add-ons appear after a base package is selected. Choose what fits your event,
+      then continue to request a quote.
+    </p>
+  </div>
+
+  <div class="container addon-grid">
+    <div class="addon-card">
+      <h3>Premium Florals</h3>
+      <p>Upgrade floral selections, color palette, or arrangement volume.</p>
+      <p class="price">$0.00</p>
+      <button class="button add-addon" data-addon="Premium Florals" data-price="0">Add</button>
+    </div>
+
+    <div class="addon-card">
+      <h3>Custom Signage</h3>
+      <p>Personalized bloom bar, drink menu, welcome, or display signage.</p>
+      <p class="price"$0.00</p>
+      <button class="button add-addon" data-addon="Custom Signage" data-price="0">Add</button>
+    </div>
+
+    <div class="addon-card">
+      <h3>Ribbon + Bouquet Supplies</h3>
+      <p>Ribbon, wrap, bouquet tags, and guest-friendly floral supplies.</p>
+      <p class="price">$0.00</p>
+      <button class="button add-addon" data-addon="Ribbon + Bouquet Supplies" data-price="0">Add</button>
+    </div>
+
+    <div class="addon-card">
+      <h3>Cups + Napkins</h3>
+      <p>Simple beverage supplies to support a polished drink cart setup.</p>
+      <p class="price">$0.00</p>
+      <button class="button add-addon" data-addon="Cups + Napkins" data-price="0">Add</button>
+    </div>
+
+    <div class="addon-card">
+      <h3>Mixers + Garnishes</h3>
+      <p>Drink styling details for mocktail, mimosa, or beverage stations.</p>
+      <p class="price">$0.00</p>
+      <button class="button add-addon" data-addon="Mixers + Garnishes" data-price="0">Add</button>
+    </div>
+
+    <div class="addon-card">
+      <h3>Cart Floral Styling</h3>
+      <p>Soft floral accents designed to style the selected cart or display.</p>
+      <p class="price">$0.00</p>
+      <button class="button add-addon" data-addon="Cart Floral Styling" data-price="0">Add</button>
+    </div>
+
+    <div class="addon-card">
+      <h3>Faux Ground Florals</h3>
+      <p>Statement floral pieces for signage, entrances, displays, or photo areas.</p>
+      <p class="price">$0.00</p>
+      <button class="button add-addon" data-addon="Faux Ground Florals" data-price="0">Add</button>
+    </div>
+
+    <div class="addon-card">
+      <h3>Delivery + Setup</h3>
+      <p>Delivery, setup, placement, and pickup for a smoother event day.</p>
+      <p class="price">$30.00</p>
+      <button class="button add-addon" data-addon="Delivery + Setup" data-price="30">Add</button>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding compact-top">
+  <div class="container narrow">
+    <p class="eyebrow">Step Three</p>
+    <h2>Request your event date.</h2>
+    <p>
+      Once your selections feel right, continue to the quote page to share your event
+      date, location, guest count, and vision.
+    </p>
+
+    <div class="button-row" style="justify-content:center;">
+      <a class="button dark" href="quote.html">Continue to Quote</a>
+    </div>
+  </div>
+</section>
+
+<div class="quote-preview" id="quotePreview">
+  <div class="quote-inner">
+    <div>
+      <strong>Your Package</strong>
+      <p class="quote-items" id="quoteItems">No package selected yet.</p>
+    </div>
+
+    <a class="button" href="quote.html" style="color:white;border-color:white;">View Quote</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Theodoro Collective</h2>
+      <p>Elevated event rentals and floral experiences.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.4a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="TikTok">
+        <svg viewBox="0 0 24 24">
+          <path d="M16.5 3c.4 2.4 1.8 3.9 4 4.1v3.2c-1.6.1-3-.4-4-1.2v6.5c0 3.4-2.2 5.4-5.4 5.4-3.1 0-5.1-2-5.1-4.8 0-3 2.2-4.9 5.6-5 .3 0 .6 0 .9.1v3.3c-.3-.1-.6-.1-.9-.1-1.4 0-2.3.7-2.3 1.8s.8 1.8 1.9 1.8c1.3 0 2.1-.8 2.1-2.4V3h3.2Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3h2.8v8h3.4Z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Theodoro Collective. All rights reserved.
+  </div>
+</footer>
+
+<script>
+const toggle=document.querySelector(".nav-toggle");
+const nav=document.querySelector(".nav");
+
+toggle.onclick=()=>nav.classList.toggle("open");
+
+let selectedPackage = null;
+let selectedAddons = [];
+
+const packageButtons = document.querySelectorAll(".select-package");
+const addonSection = document.getElementById("addons");
+const addonButtons = document.querySelectorAll(".add-addon");
+const quotePreview = document.getElementById("quotePreview");
+const quoteItems = document.getElementById("quoteItems");
+
+function updateQuotePreview(){
+  if(!selectedPackage){
+    quotePreview.classList.remove("active");
+    return;
+  }
+
+  quotePreview.classList.add("active");
+
+  const addonText = selectedAddons.length > 0
+    ? " + " + selectedAddons.join(", ")
+    : "";
+
+  quoteItems.textContent = selectedPackage + addonText;
+
+  localStorage.setItem("selectedPackage", selectedPackage);
+  localStorage.setItem("selectedAddons", JSON.stringify(selectedAddons));
+}
+
+packageButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    selectedPackage = button.dataset.package;
+    selectedAddons = [];
+
+    packageButtons.forEach(btn => {
+      btn.textContent = "Select Package";
+      btn.classList.remove("dark");
+    });
+
+    button.textContent = "Selected";
+    button.classList.add("dark");
+
+    addonButtons.forEach(btn => {
+      btn.textContent = "Add";
+      btn.classList.remove("dark");
+    });
+
+    addonSection.classList.add("active");
+    addonSection.scrollIntoView({ behavior: "smooth" });
+
+    updateQuotePreview();
+  });
+});
+
+addonButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const addon = button.dataset.addon;
+
+    if(selectedAddons.includes(addon)){
+      selectedAddons = selectedAddons.filter(item => item !== addon);
+      button.textContent = "Add";
+      button.classList.remove("dark");
+    } else {
+      selectedAddons.push(addon);
+      button.textContent = "Added";
+      button.classList.add("dark");
+    }
+
+    updateQuotePreview();
+  });
+});
+</script>
+
+</body>
+</html>
