@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Quote Request | Theodoro Collective</title>
+
+<style>
+:root{
+  --black:#111;
+  --white:#fff;
+  --ivory:#f7f4ef;
+  --sage:#8b9a84;
+  --rose:#d8b4a6;
+  --taupe:#c8b9aa;
+  --gray:#666;
+  --border:#e7e1d8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial, sans-serif;
+  color:var(--black);
+  background:var(--white);
+  line-height:1.6;
+}
+
+h1,h2,h3,.logo{
+  font-family:Georgia, serif;
+  font-weight:500;
+}
+
+h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.05;}
+h2{font-size:clamp(2rem,4vw,3rem);}
+h3{font-size:1.3rem;}
+
+p{color:var(--gray);}
+a{text-decoration:none;color:inherit;}
+
+.announcement{
+  background:var(--black);
+  color:var(--white);
+  text-align:center;
+  padding:.6rem;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 5%;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+.logo{font-size:1.3rem;}
+
+.nav{
+  display:flex;
+  gap:1rem;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.nav a:hover{color:var(--sage);}
+
+.nav-toggle{
+  display:none;
+  font-size:1.6rem;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.page-hero{
+  padding:6rem 5%;
+  background:
+    linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.82)),
+    url("https://images.pexels.com/photos/4522916/pexels-photo-4522916.jpeg");
+  background-size:cover;
+  background-position:center;
+}
+
+.page-hero-content{
+  max-width:780px;
+}
+
+.page-hero p{
+  margin-top:1.2rem;
+  max-width:640px;
+  font-size:1.05rem;
+}
+
+.section-padding{padding:5rem 5%;}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.eyebrow{
+  color:var(--sage);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.75rem;
+  margin-bottom:1rem;
+}
+
+.button-row{
+  margin-top:2rem;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.button{
+  padding:.9rem 1.3rem;
+  border:1px solid var(--black);
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  display:inline-block;
+  transition:.2s ease;
+  cursor:pointer;
+  background:transparent;
+}
+
+.button:hover{transform:translateY(-2px);}
+
+.button.dark{
+  background:var(--black);
+  color:white;
+}
+
+.quote-layout{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:2rem;
+  align-items:start;
+}
+
+.summary-card{
+  border:1px solid var(--border);
+  background:var(--ivory);
+  padding:2rem;
+  position:sticky;
+  top:100px;
+}
+
+.summary-list{
+  list-style:none;
+  margin-top:1.5rem;
+}
+
+.summary-list li{
+  padding:.8rem 0;
+  border-bottom:1px solid var(--border);
+  color:var(--gray);
+}
+
+.summary-list li strong{
+  color:var(--black);
+}
+
+.empty-message{
+  margin-top:1rem;
+}
+
+.form-card{
+  border:1px solid var(--border);
+  background:white;
+  padding:2rem;
+}
+
+.form-section{
+  margin-bottom:2.5rem;
+}
+
+.form-section:last-child{
+  margin-bottom:0;
+}
+
+.form-section h3{
+  margin-bottom:1rem;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+.form-field{
+  display:flex;
+  flex-direction:column;
+  gap:.4rem;
+}
+
+label{
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--gray);
+}
+
+.required{
+  color:var(--rose);
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:1rem;
+  border:1px solid var(--border);
+  background:white;
+  font:inherit;
+  color:var(--black);
+}
+
+textarea{
+  min-height:150px;
+  resize:vertical;
+}
+
+.full-width{
+  grid-column:1 / -1;
+}
+
+.note-box{
+  background:var(--ivory);
+  border:1px solid var(--border);
+  padding:1.5rem;
+  margin-top:1.5rem;
+}
+
+.success-message{
+  display:none;
+  margin-top:1.5rem;
+  padding:1.5rem;
+  background:var(--ivory);
+  border:1px solid var(--border);
+}
+
+.success-message.active{
+  display:block;
+}
+
+footer{
+  background:black;
+  color:white;
+  padding:3rem 5%;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+
+.footer-brand h2{font-size:1.6rem;}
+
+.footer-brand p{
+  color:#ccc;
+  margin-top:.5rem;
+  font-size:.85rem;
+}
+
+.footer-links{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links a{
+  color:white;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
+
+.footer-links a:hover{
+  background:var(--sage);
+  border-color:var(--sage);
+}
+
+.footer-links svg{
+  width:18px;
+  height:18px;
+  fill:currentColor;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:2rem auto 0;
+  padding-top:1rem;
+  border-top:1px solid rgba(255,255,255,.2);
+  color:#aaa;
+  font-size:.75rem;
+}
+
+@media(max-width:850px){
+  .nav{display:none;}
+
+  .nav.open{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:white;
+    padding:1rem 5%;
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav-toggle{display:block;}
+
+  .quote-layout,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .summary-card{
+    position:static;
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+  .button{
+    text-align:center;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">Request Your Event Quote</div>
+
+<header class="site-header">
+  <div class="logo">Theodoro Collective</div>
+
+  <button class="nav-toggle">☰</button>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="florals.html">Florals</a>
+    <a href="carts.html">Cart Rentals</a>
+    <a href="packages.html">Packages</a>
+    <a href="quote.html">Quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="eyebrow">Quote Request</p>
+    <h1>Tell us about your event.</h1>
+
+    <p>
+      Review your selected cart, package, and add-ons. Then share your event date,
+      location, guest count, and vision so we can prepare a custom quote.
+    </p>
+
+    <div class="button-row">
+      <a class="button dark" href="#quote-form">Start Request</a>
+      <a class="button" href="packages.html">Edit Package</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container quote-layout">
+
+    <aside class="summary-card">
+      <p class="eyebrow">Your Selections</p>
+      <h2>Quote Summary</h2>
+
+      <ul class="summary-list" id="summaryList">
+        <li class="empty-message">No selections have been added yet.</li>
+      </ul>
+
+      <div class="button-row">
+        <a class="button" href="packages.html">Edit Package</a>
+      </div>
+
+      <div class="note-box">
+        <p>
+          Final pricing may vary based on event location, floral availability,
+          setup needs, customization, delivery, and selected rentals.
+        </p>
+      </div>
+    </aside>
+
+    <div class="form-card" id="quote-form">
+      <form id="quoteRequestForm">
+
+        <div class="form-section">
+          <p class="eyebrow">Event Details</p>
+          <h3>When and where is your event?</h3>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="eventDate">Event Date <span class="required">*</span></label>
+              <input type="date" id="eventDate" name="eventDate" required>
+            </div>
+
+            <div class="form-field">
+              <label for="eventType">Event Type <span class="required">*</span></label>
+              <select id="eventType" name="eventType" required>
+                <option value="">Select one</option>
+                <option>Bridal Shower</option>
+                <option>Baby Shower</option>
+                <option>Birthday</option>
+                <option>Wedding Weekend</option>
+                <option>Corporate Event</option>
+                <option>Pop-Up</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="guestCount">Estimated Guest Count <span class="required">*</span></label>
+              <input type="number" id="guestCount" name="guestCount" placeholder="Example: 40" required>
+            </div>
+
+            <div class="form-field">
+              <label for="location">Venue / Location <span class="required">*</span></label>
+              <input type="text" id="location" name="location" placeholder="City, venue, or address" required>
+            </div>
+
+            <div class="form-field">
+              <label for="setting">Setting <span class="required">*</span></label>
+              <select id="setting" name="setting" required>
+                <option value="">Select one</option>
+                <option>Indoor</option>
+                <option>Outdoor</option>
+                <option>Both Indoor + Outdoor</option>
+                <option>Not Sure Yet</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="colorPalette">Color Palette <span class="required">*</span></label>
+              <input type="text" id="colorPalette" name="colorPalette" placeholder="Example: blush, ivory, sage" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <p class="eyebrow">Your Vision</p>
+          <h3>What are you imagining?</h3>
+
+          <div class="form-field">
+            <label for="vision">Event Notes</label>
+            <textarea id="vision" name="vision" placeholder="Tell us about your event style, inspiration, must-haves, or anything you want us to know."></textarea>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <p class="eyebrow">Contact Information</p>
+          <h3>How should we reach you?</h3>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-field full-width">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+          </div>
+        </div>
+
+        <button class="button dark" type="submit">
+          Submit Quote Request
+        </button>
+
+        <div class="success-message" id="successMessage">
+          <h3>Quote request captured.</h3>
+          <p>
+            This form is currently set up as a front-end mockup. Next, connect it to
+            Formspree, Netlify Forms, HoneyBook, or another form tool so inquiries
+            are delivered to your inbox.
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Theodoro Collective</h2>
+      <p>Elevated event rentals and floral experiences.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.4a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="TikTok">
+        <svg viewBox="0 0 24 24">
+          <path d="M16.5 3c.4 2.4 1.8 3.9 4 4.1v3.2c-1.6.1-3-.4-4-1.2v6.5c0 3.4-2.2 5.4-5.4 5.4-3.1 0-5.1-2-5.1-4.8 0-3 2.2-4.9 5.6-5 .3 0 .6 0 .9.1v3.3c-.3-.1-.6-.1-.9-.1-1.4 0-2.3.7-2.3 1.8s.8 1.8 1.9 1.8c1.3 0 2.1-.8 2.1-2.4V3h3.2Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3h2.8v8h3.4Z"/>
+        </svg>
+      </a>
+
+      <a href="contact.html" aria-label="Contact">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.2L4.4 7H4v.4l8 5.5 8-5.5V7h-.4L12 12.2Z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Theodoro Collective. All rights reserved.
+  </div>
+</footer>
+
+<script>
+const toggle = document.querySelector(".nav-toggle");
+const nav = document.querySelector(".nav");
+
+toggle.onclick = () => nav.classList.toggle("open");
+
+const selectedCart = localStorage.getItem("selectedCart");
+const selectedPackage = localStorage.getItem("selectedPackage");
+const selectedAddons = JSON.parse(localStorage.getItem("selectedAddons")) || [];
+
+const summaryList = document.getElementById("summaryList");
+
+function renderSummary(){
+  const items = [];
+
+  if(selectedCart){
+    items.push(`<li><strong>Cart:</strong> ${selectedCart}</li>`);
+  }
+
+  if(selectedPackage){
+    items.push(`<li><strong>Package:</strong> ${selectedPackage}</li>`);
+  }
+
+  if(selectedAddons.length > 0){
+    selectedAddons.forEach(addon => {
+      items.push(`<li><strong>Add-On:</strong> ${addon}</li>`);
+    });
+  }
+
+  if(items.length === 0){
+    summaryList.innerHTML = `<li class="empty-message">No selections have been added yet.</li>`;
+  } else {
+    summaryList.innerHTML = items.join("");
+  }
+}
+
+renderSummary();
+
+const form = document.getElementById("quoteRequestForm");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", function(event){
+  event.preventDefault();
+  successMessage.classList.add("active");
+  successMessage.scrollIntoView({ behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>
