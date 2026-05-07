@@ -104,6 +104,10 @@ a{text-decoration:none;color:inherit;}
 
 .section-padding{padding:5rem 5%;}
 
+.compact-top{
+  padding-top:2rem;
+}
+
 .container{
   max-width:1100px;
   margin:auto;
@@ -437,8 +441,7 @@ footer{
       <p>
         A floral-focused setup for bouquet building, showers, birthdays, and guest experiences.
       </p>
-      <p class="price">Packages starting at 
-      $0.00</p>
+      <p class="price">Packages starting at $0.00</p>
       <button class="button select-package" data-package="Bloom Bar Experience" data-price="0">Select Package</button>
     </div>
 
@@ -456,11 +459,11 @@ footer{
       <span class="package-label">Rentals</span>
       <h3>Standalone Rentals</h3>
       <p>
-       Curated event extras including faux florals, signage, styling pieces,
-  and decorative rentals available to layer into your existing celebration setup.
+        Curated event extras including faux florals, signage, styling pieces,
+        and decorative rentals available to layer into your existing celebration setup.
       </p>
       <p class="price">Packages starting at $0.00</p>
-      <button class="button select-package" data-package="Styled Display Package" data-price="0">Select Package</button>
+      <button class="button select-package" data-package="Standalone Rentals" data-price="0">Select Package</button>
     </div>
   </div>
 
@@ -495,7 +498,7 @@ footer{
     <div class="addon-card">
       <h3>Custom Signage</h3>
       <p>Personalized bloom bar, drink menu, welcome, or display signage.</p>
-      <p class="price"$0.00</p>
+      <p class="price">$0.00</p>
       <button class="button add-addon" data-addon="Custom Signage" data-price="0">Add</button>
     </div>
 
@@ -610,6 +613,7 @@ toggle.onclick=()=>nav.classList.toggle("open");
 
 let selectedPackage = null;
 let selectedAddons = [];
+let selectedCart = localStorage.getItem("selectedCart");
 
 const packageButtons = document.querySelectorAll(".select-package");
 const addonSection = document.getElementById("addons");
@@ -629,7 +633,11 @@ function updateQuotePreview(){
     ? " + " + selectedAddons.join(", ")
     : "";
 
-  quoteItems.textContent = selectedPackage + addonText;
+  const cartText = selectedCart
+    ? selectedCart + " • "
+    : "";
+
+  quoteItems.textContent = cartText + selectedPackage + addonText;
 
   localStorage.setItem("selectedPackage", selectedPackage);
   localStorage.setItem("selectedAddons", JSON.stringify(selectedAddons));
