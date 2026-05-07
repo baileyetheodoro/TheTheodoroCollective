@@ -1,383 +1,614 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Theodoro Collective</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>The Theodoro Collective | Event Rentals & Florals</title>
 
-    body {
-      font-family: Georgia, serif;
-      background: #fffaf6;
-      color: #2f2a25;
-      line-height: 1.6;
-    }
+<style>
+:root{
+  --black:#111;
+  --white:#fff;
+  --ivory:#f7f4ef;
+  --sage:#8b9a84;
+  --rose:#d8b4a6;
+  --taupe:#c8b9aa;
+  --gray:#666;
+  --border:#e7e1d8;
+}
 
-    header {
-      background: #ffffff;
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #eadfd6;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+body{
+  font-family:Arial, sans-serif;
+  color:var(--black);
+  background:var(--white);
+  line-height:1.6;
+}
 
-    nav a {
-      margin-left: 22px;
-      text-decoration: none;
-      color: #2f2a25;
-      font-size: 15px;
-    }
+h1,h2,h3,.logo{
+  font-family:Georgia, serif;
+  font-weight:500;
+}
 
-    nav a:hover {
-      color: #b8795b;
-    }
+h1{font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.05;}
+h2{font-size:clamp(2rem,4vw,3rem);}
+h3{font-size:1.3rem;}
 
-    .quote-link {
-      background: #2f2a25;
-      color: white;
-      padding: 10px 16px;
-      border-radius: 30px;
-    }
+p{color:var(--gray);}
+a{text-decoration:none;color:inherit;}
 
-    .hero {
-      padding: 90px 8%;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
-      align-items: center;
-    }
+.announcement{
+  background:var(--black);
+  color:var(--white);
+  text-align:center;
+  padding:.6rem;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
 
-    .hero h1 {
-      font-size: 56px;
-      line-height: 1.05;
-      margin-bottom: 22px;
-    }
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 5%;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
 
-    .hero p {
-      font-size: 18px;
-      max-width: 560px;
-      margin-bottom: 30px;
-      color: #5d534c;
-    }
+.logo{font-size:1.3rem;}
 
-    .buttons a {
-      display: inline-block;
-      margin-right: 12px;
-      margin-bottom: 12px;
-      padding: 14px 22px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 15px;
-    }
+.nav{
+  display:flex;
+  gap:1rem;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
 
-    .primary {
-      background: #b8795b;
-      color: white;
-    }
+.nav a:hover{color:var(--sage);}
 
-    .secondary {
-      border: 1px solid #b8795b;
-      color: #b8795b;
-      background: transparent;
-    }
+.nav-toggle{
+  display:none;
+  font-size:1.6rem;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
 
-    .hero-card {
-      background: #f1e3d6;
-      min-height: 430px;
-      border-radius: 28px;
-      padding: 30px;
-      display: flex;
-      align-items: end;
-      background-image: linear-gradient(
-        135deg,
-        #f5e7dc,
-        #d9b8a2
-      );
-    }
+.hero{
+  position:relative;
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  padding:6rem 5%;
+  overflow:hidden;
+}
 
-    .hero-card-inner {
-      background: rgba(255, 255, 255, 0.82);
-      padding: 24px;
-      border-radius: 22px;
-    }
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("https://images.pexels.com/photos/4522916/pexels-photo-4522916.jpeg");
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.05);
+  filter:blur(2px);
+}
 
-    .section {
-      padding: 70px 8%;
-    }
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.72);
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 42px;
-    }
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
 
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
+.hero-content p{
+  margin-top:1.2rem;
+  max-width:620px;
+  font-size:1.05rem;
+}
 
-    .section-title p {
-      color: #6a5f57;
-      max-width: 680px;
-      margin: 0 auto;
-    }
+.button-row{
+  margin-top:2rem;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+.button{
+  padding:.9rem 1.3rem;
+  border:1px solid var(--black);
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  display:inline-block;
+  transition:.2s ease;
+}
 
-    .card {
-      background: white;
-      border: 1px solid #eadfd6;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    }
+.button:hover{transform:translateY(-2px);}
 
-    .card h3 {
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
+.button.dark{
+  background:var(--black);
+  color:white;
+}
 
-    .card p {
-      color: #645a52;
-      margin-bottom: 20px;
-    }
+.button.accent{
+  background:var(--sage);
+  border:1px solid var(--sage);
+  color:white;
+}
 
-    .card a {
-      color: #b8795b;
-      font-weight: bold;
-      text-decoration: none;
-    }
+.button.accent:hover{
+  background:#74826e;
+  border-color:#74826e;
+}
 
-    .feature {
-      background: #2f2a25;
-      color: white;
-      border-radius: 34px;
-      padding: 55px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
+.section-padding{padding:5rem 5%;}
 
-    .feature h2 {
-      font-size: 38px;
-      margin-bottom: 16px;
-    }
+.container{
+  max-width:1100px;
+  margin:auto;
+}
 
-    .feature p {
-      color: #eee0d6;
-    }
+.narrow{
+  max-width:720px;
+  margin:auto;
+  text-align:center;
+}
 
-    .feature ul {
-      list-style: none;
-    }
+.alt-bg{background:var(--ivory);}
 
-    .feature li {
-      margin-bottom: 14px;
-      background: rgba(255,255,255,0.08);
-      padding: 14px 18px;
-      border-radius: 16px;
-    }
+.eyebrow{
+  color:var(--sage);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.75rem;
+  margin-bottom:1rem;
+}
 
-    .cta {
-      text-align: center;
-      background: #f1e3d6;
-      padding: 70px 8%;
-    }
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  margin-top:2.5rem;
+}
 
-    .cta h2 {
-      font-size: 40px;
-      margin-bottom: 14px;
-    }
+.step{
+  position:relative;
+  border:1px solid var(--border);
+  background:white;
+  padding:2rem;
+}
 
-    .cta p {
-      max-width: 650px;
-      margin: 0 auto 28px;
-      color: #5f554e;
-    }
+.step span{
+  color:var(--rose);
+  font-size:.8rem;
+  letter-spacing:.1em;
+  display:block;
+  margin-bottom:.5rem;
+}
 
-    footer {
-      padding: 30px 8%;
-      text-align: center;
-      background: #ffffff;
-      border-top: 1px solid #eadfd6;
-      color: #766b63;
-      font-size: 14px;
-    }
+.step:not(:last-child)::after{
+  content:"›";
+  position:absolute;
+  right:-1rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--taupe);
+  font-size:2rem;
+}
 
-    @media (max-width: 850px) {
-      header {
-        flex-direction: column;
-        gap: 16px;
-      }
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  margin-top:2rem;
+}
 
-      nav {
-        text-align: center;
-      }
+.category-card{
+  border:1px solid var(--border);
+  background:white;
+  overflow:hidden;
+  transition:.2s ease;
+}
 
-      nav a {
-        display: inline-block;
-        margin: 6px;
-      }
+.category-card:hover{
+  transform:translateY(-5px);
+  border-color:black;
+}
 
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 55px;
-      }
+.category-card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  display:block;
+}
 
-      .hero h1 {
-        font-size: 42px;
-      }
+.card-content{padding:2rem;}
 
-      .cards,
-      .feature {
-        grid-template-columns: 1fr;
-      }
+.card-button{
+  display:inline-block;
+  margin-top:1.25rem;
+  padding:.75rem 1rem;
+  border:1px solid var(--black);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  transition:.2s ease;
+}
 
-      .feature {
-        padding: 35px;
-      }
-    }
-  </style>
+.card-button:hover{
+  background:var(--black);
+  color:white;
+}
+
+.story-section{
+  max-width:780px;
+  margin:auto;
+}
+
+.story-section .button{
+  margin-top:1.5rem;
+}
+
+.cta-card{
+  background:transparent;
+  padding:1rem 0;
+  text-align:center;
+  max-width:760px;
+  margin:auto;
+}
+
+.cta-card h2{
+  margin-top:.5rem;
+}
+
+.cta-card p{
+  max-width:620px;
+  margin:1rem auto 0;
+}
+
+footer{
+  background:black;
+  color:white;
+  padding:3rem 5%;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+
+.footer-brand h2{font-size:1.6rem;}
+
+.footer-brand p{
+  color:#ccc;
+  margin-top:.5rem;
+  font-size:.85rem;
+}
+
+.footer-links{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links a{
+  color:white;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
+
+.footer-links a:hover{
+  background:var(--sage);
+  border-color:var(--sage);
+}
+
+.footer-links svg{
+  width:18px;
+  height:18px;
+  fill:currentColor;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:2rem auto 0;
+  padding-top:1rem;
+  border-top:1px solid rgba(255,255,255,.2);
+  color:#aaa;
+  font-size:.75rem;
+}
+
+@media(max-width:850px){
+  .nav{display:none;}
+
+  .nav.open{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:white;
+    padding:1rem 5%;
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav-toggle{display:block;}
+
+  .hero{
+    min-height:75vh;
+    padding:5rem 5%;
+  }
+
+  .steps,
+  .category-grid{
+    grid-template-columns:1fr;
+  }
+
+  .step:not(:last-child)::after{
+    content:"⌄";
+    right:auto;
+    left:50%;
+    top:auto;
+    bottom:-1.5rem;
+    transform:translateX(-50%);
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+  .button{
+    text-align:center;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">The Theodoro Collective</div>
+<div class="announcement">Now Booking 2026 Events</div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="bloom-bar.html">Bloom Bar</a>
-      <a href="drink-carts.html">Drink Carts</a>
-      <a href="rentals.html">Rentals</a>
-      <a href="quote.html">Quote</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <div class="logo">Theodoro Collective</div>
 
-  <section class="hero">
-    <div>
-      <h1>Curated event rentals, florals, and styled details.</h1>
-      <p>
-        The Theodoro Collective offers elevated rental pieces and floral-inspired
-        experiences for showers, birthdays, weddings, parties, and intimate events.
-      </p>
+  <button class="nav-toggle">☰</button>
 
-      <div class="buttons">
-        <a href="quote.html" class="primary">Build Your Quote</a>
-        <a href="bloom-bar.html" class="secondary">Explore Services</a>
-      </div>
-    </div>
+  <nav class="nav">
+    <a href="florals.html">Florals</a>
+    <a href="carts.html">Cart Rentals</a>
+    <a href="packages.html">Packages</a>
+    <a href="quote.html">Quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-    <div class="hero-card">
-      <div class="hero-card-inner">
-        <h3>Designed to feel personal, polished, and easy.</h3>
-        <p>
-          Choose from bloom bars, drink carts, decorative rentals, and custom styling
-          add-ons to create the perfect setup.
-        </p>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Elevated event rentals designed around your celebration.</h1>
 
-  <section class="section">
-    <div class="section-title">
-      <h2>What We Offer</h2>
-      <p>
-        Start with a core rental, then add flowers, signage, styling pieces, and
-        event details to create a custom package.
-      </p>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Bloom Bar</h3>
-        <p>
-          A beautiful build-your-own bouquet experience with cart rental, floral
-          supplies, signage, ribbon, and optional premium blooms.
-        </p>
-        <a href="bloom-bar.html">View Bloom Bar →</a>
-      </div>
-
-      <div class="card">
-        <h3>Drink Carts</h3>
-        <p>
-          Dry-service drink cart rentals for champagne, lemonade, coffee, mocktails,
-          or mixers. Alcohol not provided.
-        </p>
-        <a href="drink-carts.html">View Drink Carts →</a>
-      </div>
-
-      <div class="card">
-        <h3>Event Rentals</h3>
-        <p>
-          Decorative pieces like faux florals, signage, display stands, pillars,
-          champagne walls, and styled event accents.
-        </p>
-        <a href="rentals.html">View Rentals →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="feature">
-      <div>
-        <h2>Build a package that fits your event.</h2>
-        <p>
-          Whether you need one statement piece or a full styled setup, you can mix
-          and match rentals and add-ons to fit your theme, guest count, and budget.
-        </p>
-      </div>
-
-      <ul>
-        <li>✔ Bridal showers, baby showers, birthdays, and private parties</li>
-        <li>✔ Customizable carts, florals, signage, and styling</li>
-        <li>✔ Quote builder with itemized selections</li>
-        <li>✔ Local delivery and setup options</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="cta">
-    <h2>Ready to start planning?</h2>
     <p>
-      Browse the collection, select your favorite rentals and add-ons, and submit
-      a quote request for your event date.
+      Bloom bars, styled carts, and curated rental moments designed to feel polished,
+      personal, and memorable.
     </p>
-    <div class="buttons">
-      <a href="quote.html" class="primary">Start Your Quote</a>
-      <a href="contact.html" class="secondary">Contact Us</a>
+
+    <div class="button-row">
+      <a class="button dark" href="packages.html">Build Your Package</a>
+      <a class="button" href="florals.html">Explore Florals</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 The Theodoro Collective. All rights reserved.
-  </footer>
+<section class="section-padding">
+  <div class="container story-section">
+    <p class="eyebrow">How We Got Our Start</p>
 
-  <script>
-    const quoteItems = JSON.parse(localStorage.getItem("quoteItems")) || [];
-    console.log("Current quote items:", quoteItems);
-  </script>
+    <h2>Built from a love of florals and gathering.</h2>
+
+    <p>
+      The Theodoro Collective is rooted in a passion for thoughtful details,
+      seasonal florals, and creating moments that feel special. What started as
+      a love for growing, arranging, and styling florals has grown into a vision
+      for elevated rentals that help bring beautiful gatherings to life.
+    </p>
+
+    <a class="button dark" href="florals.html">Explore Our Floral Story</a>
+  </div>
+</section>
+
+<section class="section-padding alt-bg">
+  <div class="container">
+    <h2>How it works</h2>
+
+    <div class="steps">
+      <div class="step">
+        <span>01</span>
+        <h3>Choose Package</h3>
+        <p>Select your base experience.</p>
+      </div>
+
+      <div class="step">
+        <span>02</span>
+        <h3>Add Details</h3>
+        <p>Customize after selection.</p>
+      </div>
+
+      <div class="step">
+        <span>03</span>
+        <h3>Request Quote</h3>
+        <p>Submit your event information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <h2>Start with what you need</h2>
+
+    <div class="category-grid">
+      <a class="category-card" href="florals.html">
+        <img
+          src="https://images.pexels.com/photos/28768708/pexels-photo-28768708.jpeg"
+          alt="Seasonal floral arrangement"
+        >
+
+        <div class="card-content">
+          <h3>Florals</h3>
+          <p>
+            Bloom bars, seasonal stems, bouquet moments, and floral details designed
+            to bring beauty, color, and intention to your gathering.
+          </p>
+          <span class="card-button">Explore Florals</span>
+        </div>
+      </a>
+
+      <a class="category-card" href="carts.html">
+        <img
+          src="https://images.pexels.com/photos/36373129/pexels-photo-36373129.jpeg"
+          alt="White floral cart with neutral styling"
+        >
+
+        <div class="card-content">
+          <h3>Cart Rentals</h3>
+          <p>
+            Browse bloom carts, beverage carts, and flexible rental setups designed
+            for showers, celebrations, birthdays, and gatherings.
+          </p>
+          <span class="card-button">View Cart Rentals</span>
+        </div>
+      </a>
+
+      <a class="category-card" href="packages.html">
+        <img
+          src="https://images.pexels.com/photos/6216267/pexels-photo-6216267.jpeg"
+          alt="Styled floral package setup"
+        >
+
+        <div class="card-content">
+          <h3>Build a Package</h3>
+          <p>
+            Select your base package first, then unlock add-ons and details to create
+            a quote tailored to your event.
+          </p>
+          <span class="card-button">Build Your Package</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding alt-bg">
+  <div class="container narrow">
+    <p class="eyebrow">Theodoro Collective</p>
+
+    <h2>Rooted in florals, built for gatherings.</h2>
+
+    <p>
+      The Theodoro Collective blends florals, cart rentals, and thoughtful details
+      into elevated event experiences. Each setup is designed to feel intentional,
+      flexible, and tailored to your celebration.
+    </p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="cta-card">
+      <p class="eyebrow">Ready to Start Planning?</p>
+
+      <h2>Build a package around your event.</h2>
+
+      <p>
+        Choose your base package first, then customize your setup with add-ons
+        that fit your event style and needs.
+      </p>
+
+      <div class="button-row" style="justify-content:center;">
+        <a class="button" href="packages.html">
+  Build Your Package
+</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Theodoro Collective</h2>
+      <p>Elevated event rentals and floral experiences.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.4a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="TikTok">
+        <svg viewBox="0 0 24 24">
+          <path d="M16.5 3c.4 2.4 1.8 3.9 4 4.1v3.2c-1.6.1-3-.4-4-1.2v6.5c0 3.4-2.2 5.4-5.4 5.4-3.1 0-5.1-2-5.1-4.8 0-3 2.2-4.9 5.6-5 .3 0 .6 0 .9.1v3.3c-.3-.1-.6-.1-.9-.1-1.4 0-2.3.7-2.3 1.8s.8 1.8 1.9 1.8c1.3 0 2.1-.8 2.1-2.4V3h3.2Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3h2.8v8h3.4Z"/>
+        </svg>
+      </a>
+
+      <a href="contact.html" aria-label="Contact">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.2L4.4 7H4v.4l8 5.5 8-5.5V7h-.4L12 12.2Z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Theodoro Collective. All rights reserved.
+  </div>
+</footer>
+
+<script>
+const toggle=document.querySelector(".nav-toggle");
+const nav=document.querySelector(".nav");
+
+toggle.onclick=()=>nav.classList.toggle("open");
+</script>
 
 </body>
 </html>
