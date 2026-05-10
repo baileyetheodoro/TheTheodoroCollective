@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Florals | Theodoro Collective</title>
+
+<style>
+:root{
+  --black:#111;
+  --white:#fff;
+  --ivory:#f7f4ef;
+  --sage:#8b9a84;
+  --rose:#d8b4a6;
+  --taupe:#c8b9aa;
+  --gray:#666;
+  --border:#e7e1d8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial, sans-serif;
+  color:var(--black);
+  background:var(--white);
+  line-height:1.6;
+}
+
+h1,h2,h3,.logo{
+  font-family:Georgia, serif;
+  font-weight:500;
+}
+
+h1{
+  font-size:clamp(2.8rem,6vw,5.3rem);
+  line-height:1.05;
+}
+
+h2{
+  font-size:clamp(2rem,4vw,3rem);
+}
+
+h3{
+  font-size:1.3rem;
+}
+
+p{
+  color:var(--gray);
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.announcement{
+  background:var(--black);
+  color:var(--white);
+  text-align:center;
+  padding:.6rem;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 5%;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+.logo{
+  font-size:1.3rem;
+}
+
+.nav{
+  display:flex;
+  gap:1rem;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.nav a:hover{
+  color:var(--sage);
+}
+
+.nav-toggle{
+  display:none;
+  font-size:1.6rem;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.page-hero{
+  padding:6rem 5%;
+  background:
+    linear-gradient(rgba(255,255,255,.76), rgba(255,255,255,.84)),
+    url("https://images.pexels.com/photos/28768708/pexels-photo-28768708.jpeg");
+  background-size:cover;
+  background-position:center;
+}
+
+.page-hero-content{
+  max-width:780px;
+}
+
+.page-hero p{
+  margin-top:1.2rem;
+  max-width:640px;
+  font-size:1.05rem;
+}
+
+.section-padding{
+  padding:5rem 5%;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.narrow{
+  max-width:720px;
+  margin:auto;
+  text-align:center;
+}
+
+.alt-bg{
+  background:var(--ivory);
+}
+
+.eyebrow{
+  color:var(--sage);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.75rem;
+  margin-bottom:1rem;
+}
+
+.button-row{
+  margin-top:2rem;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.button{
+  padding:.9rem 1.3rem;
+  border:1px solid var(--black);
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  display:inline-block;
+  transition:.2s ease;
+  cursor:pointer;
+  background:transparent;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+}
+
+.button.dark{
+  background:var(--black);
+  color:white;
+}
+
+.split-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
+
+.image-panel{
+  min-height:420px;
+  background:
+    linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15)),
+    url("https://images.pexels.com/photos/4522916/pexels-photo-4522916.jpeg");
+  background-size:cover;
+  background-position:center;
+  border:1px solid var(--border);
+}
+
+.story-note{
+  border-left:2px solid var(--rose);
+  padding-left:1.5rem;
+  margin-top:1.5rem;
+}
+
+.story-details{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:2.5rem;
+  border-top:1px solid var(--border);
+  padding-top:2rem;
+}
+
+.story-details span{
+  display:block;
+  color:var(--rose);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.72rem;
+  margin-bottom:.5rem;
+}
+
+.story-details p{
+  font-size:.92rem;
+}
+
+.offer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  margin-top:2.5rem;
+}
+
+.offer-card{
+  border:1px solid var(--border);
+  background:white;
+  padding:2rem;
+  transition:.2s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.offer-card:hover{
+  transform:translateY(-5px);
+  border-color:black;
+}
+
+.offer-label{
+  color:var(--rose);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.72rem;
+  margin-bottom:.8rem;
+  display:block;
+}
+
+.detail-list{
+  margin-top:1.25rem;
+  list-style:none;
+}
+
+.detail-list li{
+  color:var(--gray);
+  font-size:.92rem;
+  padding:.45rem 0;
+  border-bottom:1px solid var(--border);
+}
+
+.detail-list li:last-child{
+  border-bottom:none;
+}
+
+.offer-card .button-row{
+  margin-top:1.5rem;
+}
+
+.offer-card .button{
+  width:100%;
+  text-align:center;
+}
+
+.cta-card{
+  background:transparent;
+  padding:1rem 0;
+  text-align:center;
+  max-width:760px;
+  margin:auto;
+}
+
+.cta-card h2{
+  margin-top:.5rem;
+}
+
+.cta-card p{
+  max-width:620px;
+  margin:1rem auto 0;
+}
+
+footer{
+  background:black;
+  color:white;
+  padding:3rem 5%;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+
+.footer-brand h2{
+  font-size:1.6rem;
+}
+
+.footer-brand p{
+  color:#ccc;
+  margin-top:.5rem;
+  font-size:.85rem;
+}
+
+.footer-links{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links a{
+  color:white;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
+
+.footer-links a:hover{
+  background:var(--sage);
+  border-color:var(--sage);
+}
+
+.footer-links svg{
+  width:18px;
+  height:18px;
+  fill:currentColor;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:2rem auto 0;
+  padding-top:1rem;
+  border-top:1px solid rgba(255,255,255,.2);
+  color:#aaa;
+  font-size:.75rem;
+}
+
+@media(max-width:850px){
+
+  .nav{
+    display:none;
+  }
+
+  .nav.open{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:white;
+    padding:1rem 5%;
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav-toggle{
+    display:block;
+  }
+
+  .split-grid,
+  .offer-grid,
+  .story-details{
+    grid-template-columns:1fr;
+  }
+
+  .button-row{
+    flex-direction:column;
+  }
+
+  .button{
+    text-align:center;
+  }
+
+  .image-panel{
+    min-height:300px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+  Florals, Bloom Bars & Seasonal Details
+</div>
+
+<header class="site-header">
+
+  <div class="logo">
+    Theodoro Collective
+  </div>
+
+  <button class="nav-toggle">☰</button>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="florals.html">Florals</a>
+    <a href="carts.html">Cart Rentals</a>
+    <a href="packages.html">Packages</a>
+    <a href="quote.html">Quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+<section class="page-hero">
+
+  <div class="page-hero-content">
+
+    <p class="eyebrow">
+      Florals
+    </p>
+
+    <h1>
+      Floral moments designed to feel personal, seasonal, and gathered.
+    </h1>
+
+    <p>
+      From bloom bars to bouquet details, our floral offerings bring color,
+      texture, and intention to showers, birthdays, pop-ups, and meaningful gatherings.
+    </p>
+
+    <div class="button-row">
+      <a class="button dark" href="packages.html">
+        Explore Floral Packages
+      </a>
+
+      <a class="button" href="#floral-offerings">
+        Explore Floral Options
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section-padding">
+
+  <div class="container split-grid">
+
+    <div>
+
+      <p class="eyebrow">
+        Our Floral Story
+      </p>
+
+      <h2>
+        Rooted in growing, gathering, and seasonal beauty.
+      </h2>
+
+      <p>
+        Florals are at the heart of Theodoro Collective. What started as a love for
+        growing flowers and creating arrangements has grown into a vision for floral
+        experiences that feel thoughtful, interactive, and beautifully styled.
+      </p>
+
+      <div class="story-note">
+        <p>
+          Floral availability changes with season, color palette, growing conditions,
+          and supplier access. Each quote is customized based on your event date,
+          desired look, and level of floral styling.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="image-panel"></div>
+
+  </div>
+
+  <div class="container story-details">
+
+    <div>
+      <span>Seasonal</span>
+
+      <p>
+        Florals are selected based on timing, availability, and the look you want to create.
+      </p>
+    </div>
+
+    <div>
+      <span>Personal</span>
+
+      <p>
+        Your color palette, event style, and guest experience guide the floral direction.
+      </p>
+    </div>
+
+    <div>
+      <span>Styled</span>
+
+      <p>
+        Florals can be layered into bloom bars, carts, signage, displays, and thoughtful event details.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section-padding alt-bg" id="floral-offerings">
+
+  <div class="container narrow">
+
+    <p class="eyebrow">
+      Floral Offerings
+    </p>
+
+    <h2>
+      Choose the floral moment that fits your gathering.
+    </h2>
+
+    <p>
+      Floral services can be booked as part of a cart package,
+      paired with event rentals, or requested as a custom floral detail for your celebration.
+    </p>
+
+  </div>
+
+  <div class="container offer-grid">
+
+    <div class="offer-card">
+
+      <span class="offer-label">
+        Interactive
+      </span>
+
+      <h3>
+        Bloom Bar
+      </h3>
+
+      <p>
+        A guest-centered floral experience where attendees build their own bouquet
+        or select stems to take home.
+      </p>
+
+      <ul class="detail-list">
+        <li>Ideal for showers, birthdays, and pop-ups</li>
+        <li>Can include cart, rack, ribbon, and signage</li>
+        <li>Fresh stem options vary by season and availability</li>
+      </ul>
+
+      <div class="button-row">
+        <a class="button" href="packages.html">
+          Explore Bloom Packages
+        </a>
+      </div>
+
+    </div>
+
+    <div class="offer-card">
+
+      <span class="offer-label">
+        Styled
+      </span>
+
+      <h3>
+        Floral Add-Ons
+      </h3>
+
+      <p>
+        Soft floral details designed to elevate carts, signage, displays,
+        and event rental moments.
+      </p>
+
+      <ul class="detail-list">
+        <li>Cart floral styling</li>
+        <li>Signage or display florals</li>
+        <li>Small arrangements or accent pieces</li>
+      </ul>
+
+      <div class="button-row">
+        <a class="button" href="packages.html#addons">
+          View Floral Extras
+        </a>
+      </div>
+
+    </div>
+
+    <div class="offer-card">
+
+      <span class="offer-label">
+        Custom
+      </span>
+
+      <h3>
+        Floral Requests
+      </h3>
+
+      <p>
+        Custom floral moments for clients who want something more specific
+        than a standard bloom bar or add-on.
+      </p>
+
+      <ul class="detail-list">
+        <li>Color palette guidance</li>
+        <li>Seasonal floral direction</li>
+        <li>Custom notes submitted through quote request</li>
+      </ul>
+
+      <div class="button-row">
+        <a class="button" href="quote.html">
+          Start Custom Inquiry
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section-padding">
+
+  <div class="container cta-card">
+
+    <p class="eyebrow">
+      Ready to Build?
+    </p>
+
+    <h2>
+      Start with a floral package, then customize the details.
+    </h2>
+
+    <p>
+      Choose a bloom bar experience, floral add-ons, or a custom floral request
+      and share your event details through the quote form.
+    </p>
+
+    <div class="button-row" style="justify-content:center;">
+
+      <a class="button dark" href="packages.html">
+        Explore Floral Packages
+      </a>
+
+      <a class="button" href="quote.html">
+        Request Quote
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+
+      <h2>
+        Theodoro Collective
+      </h2>
+
+      <p>
+        Elevated event rentals and floral experiences.
+      </p>
+
+    </div>
+
+    <div class="footer-links">
+
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.4a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="TikTok">
+        <svg viewBox="0 0 24 24">
+          <path d="M16.5 3c.4 2.4 1.8 3.9 4 4.1v3.2c-1.6.1-3-.4-4-1.2v6.5c0 3.4-2.2 5.4-5.4 5.4-3.1 0-5.1-2-5.1-4.8 0-3 2.2-4.9 5.6-5 .3 0 .6 0 .9.1v3.3c-.3-.1-.6-.1-.9-.1-1.4 0-2.3.7-2.3 1.8s.8 1.8 1.9 1.8c1.3 0 2.1-.8 2.1-2.4V3h3.2Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3h2.8v8h3.4Z"/>
+        </svg>
+      </a>
+
+      <a href="contact.html" aria-label="Contact">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.2L4.4 7H4v.4l8 5.5 8-5.5V7h-.4L12 12.2Z"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Theodoro Collective. All rights reserved.
+  </div>
+
+</footer>
+
+<script>
+const toggle = document.querySelector(".nav-toggle");
+const nav = document.querySelector(".nav");
+
+toggle.onclick = () => nav.classList.toggle("open");
+</script>
+
+</body>
+</html>
