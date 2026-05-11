@@ -18,15 +18,8 @@
   --border:#e7e1d8;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
   font-family:Arial, sans-serif;
@@ -40,27 +33,12 @@ h1,h2,h3,.logo{
   font-weight:500;
 }
 
-h1{
-  font-size:clamp(2.8rem,6vw,5.3rem);
-  line-height:1.05;
-}
+h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.05;}
+h2{font-size:clamp(2rem,4vw,3rem);}
+h3{font-size:1.2rem;}
 
-h2{
-  font-size:clamp(2rem,4vw,3rem);
-}
-
-h3{
-  font-size:1.2rem;
-}
-
-p{
-  color:var(--gray);
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
+p{color:var(--gray);}
+a{text-decoration:none;color:inherit;}
 
 .announcement{
   background:var(--black);
@@ -85,9 +63,7 @@ a{
   z-index:100;
 }
 
-.logo{
-  font-size:1.3rem;
-}
+.logo{font-size:1.3rem;}
 
 .nav{
   display:flex;
@@ -97,9 +73,7 @@ a{
   letter-spacing:.1em;
 }
 
-.nav a:hover{
-  color:var(--sage);
-}
+.nav a:hover{color:var(--sage);}
 
 .nav-toggle{
   display:none;
@@ -118,9 +92,7 @@ a{
   background-position:center;
 }
 
-.page-hero-content{
-  max-width:760px;
-}
+.page-hero-content{max-width:760px;}
 
 .page-hero p{
   margin-top:1.2rem;
@@ -128,9 +100,7 @@ a{
   font-size:1.05rem;
 }
 
-.section-padding{
-  padding:5rem 5%;
-}
+.section-padding{padding:5rem 5%;}
 
 .container{
   max-width:950px;
@@ -163,26 +133,16 @@ a{
   background:transparent;
 }
 
-.button:hover{
-  transform:translateY(-2px);
-}
+.button:hover{transform:translateY(-2px);}
 
 .button.dark{
   background:var(--black);
   color:white;
 }
 
-.faq-section{
-  margin-bottom:4rem;
-}
-
-.faq-section:last-child{
-  margin-bottom:0;
-}
-
-.faq-heading{
-  margin-bottom:2rem;
-}
+.faq-section{margin-bottom:4rem;}
+.faq-section:last-child{margin-bottom:0;}
+.faq-heading{margin-bottom:2rem;}
 
 .faq-list{
   display:flex;
@@ -232,11 +192,24 @@ a{
 }
 
 .faq-item.active .faq-answer{
-  max-height:400px;
+  max-height:900px;
 }
 
 .faq-item.active .faq-icon{
   transform:rotate(45deg);
+}
+
+.radius-map{
+  margin-top:1.5rem;
+}
+
+.radius-map iframe{
+  width:100%;
+  max-width:100%;
+  height:500px;
+  border:1px solid var(--border);
+  border-radius:.5rem;
+  display:block;
 }
 
 .cta-block{
@@ -268,9 +241,7 @@ footer{
   flex-wrap:wrap;
 }
 
-.footer-brand h2{
-  font-size:1.6rem;
-}
+.footer-brand h2{font-size:1.6rem;}
 
 .footer-brand p{
   color:#ccc;
@@ -318,10 +289,7 @@ footer{
 }
 
 @media(max-width:850px){
-
-  .nav{
-    display:none;
-  }
+  .nav{display:none;}
 
   .nav.open{
     display:flex;
@@ -335,41 +303,24 @@ footer{
     border-bottom:1px solid var(--border);
   }
 
-  .nav-toggle{
-    display:block;
-  }
+  .nav-toggle{display:block;}
 
-  .button-row{
-    flex-direction:column;
-  }
+  .button-row{flex-direction:column;}
+  .button{text-align:center;}
 
-  .button{
-    text-align:center;
-  }
+  .cta-block{padding:2rem;}
 
-  .cta-block{
-    padding:2rem;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-  }
-
+  .footer-inner{flex-direction:column;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="announcement">
-  Frequently Asked Questions
-</div>
+<div class="announcement">Frequently Asked Questions</div>
 
 <header class="site-header">
-
-  <div class="logo">
-    Theodoro Collective
-  </div>
+  <div class="logo">Theodoro Collective</div>
 
   <button class="nav-toggle">☰</button>
 
@@ -381,38 +332,25 @@ footer{
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
   </nav>
-
 </header>
 
 <section class="page-hero">
-
   <div class="page-hero-content">
+    <p class="eyebrow">FAQ</p>
 
-    <p class="eyebrow">
-      FAQ
-    </p>
-
-    <h1>
-      A few things you may want to know before booking.
-    </h1>
+    <h1>A few things you may want to know before booking.</h1>
 
     <p>
-      From bloom bars and rentals to setup timing and custom requests,
+      From floral details and package customization to setup, timing and delivery,
       here are answers to some of the most common questions about working with Theodoro Collective.
     </p>
-
-    </div>
-
   </div>
-
 </section>
 
 <section class="section-padding">
-
   <div class="container">
 
     <div class="faq-section">
-
       <div class="faq-heading">
         <p class="eyebrow">Booking</p>
         <h2>Planning & Availability</h2>
@@ -429,7 +367,10 @@ footer{
           <div class="faq-answer">
             <div class="faq-answer-inner">
               <p>
-                Booking availability may vary depending on season and event demand. To allow time for planning, sourcing, and preparation, booking at least two weeks in advance is recommended. Last-minute requests may be subject to additional fees based on availability and turnaround time.
+                Booking availability may vary depending on season and event demand.
+                To allow time for planning, sourcing, and preparation, booking at least
+                three weeks in advance is recommended. Last-minute requests may be subject
+                to additional fees based on availability and turnaround time.
               </p>
             </div>
           </div>
@@ -445,18 +386,17 @@ footer{
             <div class="faq-answer-inner">
               <p>
                 Yes. Packages are designed to be flexible and can often be adjusted
-                with floral upgrades, rental add-ons, signage, or styling details. Submit a message or request a quote to learn more. 
+                with floral upgrades, rental add-ons, signage, styling details, or
+                event extras. Submit a message or request a quote to learn more.
               </p>
             </div>
           </div>
         </div>
 
       </div>
-
     </div>
 
     <div class="faq-section">
-
       <div class="faq-heading">
         <p class="eyebrow">Florals</p>
         <h2>Bloom Bars & Floral Details</h2>
@@ -489,7 +429,7 @@ footer{
           <div class="faq-answer">
             <div class="faq-answer-inner">
               <p>
-                Color palettes and event inspiration are discussed during the inquiry process
+                Color palettes and event inspiration are discussed during the inquiry process,
                 and floral direction is customized around your event style whenever possible.
               </p>
             </div>
@@ -497,56 +437,9 @@ footer{
         </div>
 
       </div>
-
     </div>
 
     <div class="faq-section">
-
-      <div class="faq-heading">
-        <p class="eyebrow">Carts & Rentals</p>
-        <h2>Rental Information</h2>
-      </div>
-
-      <div class="faq-list">
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Do you provide alcohol?</span>
-            <div class="faq-icon">+</div>
-          </button>
-
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>
-                No. Beverage cart rentals are dry rentals only.
-                Clients are responsible for supplying all alcohol and beverages.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Do rentals include setup and pickup?</span>
-            <div class="faq-icon">+</div>
-          </button>
-
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>
-                Setup and pickup options may vary depending on the rental type,
-                event location, and package selection.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="faq-section">
-
       <div class="faq-heading">
         <p class="eyebrow">Event Logistics</p>
         <h2>Delivery, Weather & Policies</h2>
@@ -562,26 +455,19 @@ footer{
 
           <div class="faq-answer">
             <div class="faq-answer-inner">
-     <div class="faq-answer">
-  <div class="faq-answer-inner">
-    <p>
-      Theodoro Collective is based in St. Charles, Missouri.
-      Delivery options will vary depending on distance, and event need, our typical coverage area can be seen below. Please inquire for deliveries outside of this radius. 
-    </p>
-
-    <div class="radius-map">
-      <iframe
-        src="https://radiusmapper.com/embed/3y3pQBFPk5"
-        frameborder="0"
-        title="Theodoro Collective service area map">
-      </iframe>
-    </div>
-  </div>
-</div>
               <p>
-                Theodoro Collective is based in the greater St. Louis area.
-                
+                Theodoro Collective is based in St. Charles, Missouri.
+                Delivery availability may vary depending on distance and event needs.
+                Please inquire for events outside of the standard service radius shown below.
               </p>
+
+              <div class="radius-map">
+                <iframe
+                  src="https://radiusmapper.com/embed/3y3pQBFPk5"
+                  frameborder="0"
+                  title="Theodoro Collective service area map">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -596,67 +482,43 @@ footer{
             <div class="faq-answer-inner">
               <p>
                 Outdoor setups may require additional planning depending on weather,
-                wind, heat, and venue accessibility. Please send us a message to discuss the logistics for your event.
+                wind, heat, and venue accessibility. Please send us a message to discuss
+                the logistics for your event.
               </p>
             </div>
           </div>
         </div>
 
       </div>
-
     </div>
 
     <div class="cta-block">
+      <p class="eyebrow">Still Have Questions?</p>
 
-      <p class="eyebrow">
-        Still Have Questions?
-      </p>
-
-      <h2>
-        We’re happy to help.
-      </h2>
+      <h2>We’re happy to help.</h2>
 
       <p>
         If you’re unsure where to start or have questions that aren’t answered here,
-        send a message or begin building your event package.
+        send a message or begin exploring your event package options.
       </p>
 
       <div class="button-row" style="justify-content:center;">
-
-        <a class="button dark" href="contact.html">
-          Contact Us
-        </a>
-
-        <a class="button" href="packages.html">
-          Explore Packages
-        </a>
-
+        <a class="button dark" href="contact.html">Contact Us</a>
+        <a class="button" href="packages.html">Explore Packages</a>
       </div>
-
     </div>
 
   </div>
-
 </section>
 
 <footer>
-
   <div class="footer-inner">
-
     <div class="footer-brand">
-
-      <h2>
-        Theodoro Collective
-      </h2>
-
-      <p>
-        Elevated event rentals and floral experiences.
-      </p>
-
+      <h2>Theodoro Collective</h2>
+      <p>Elevated florals and event details.</p>
     </div>
 
     <div class="footer-links">
-
       <a href="#" aria-label="Instagram">
         <svg viewBox="0 0 24 24">
           <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.4a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
@@ -680,15 +542,12 @@ footer{
           <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7.2L4.4 7H4v.4l8 5.5 8-5.5V7h-.4L12 12.2Z"/>
         </svg>
       </a>
-
     </div>
-
   </div>
 
   <div class="footer-bottom">
     © 2026 Theodoro Collective. All rights reserved.
   </div>
-
 </footer>
 
 <script>
