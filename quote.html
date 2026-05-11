@@ -177,6 +177,31 @@ a{text-decoration:none;color:inherit;}
   margin-top:1rem;
 }
 
+.estimate-box{
+  background:white;
+  border:1px solid var(--border);
+  padding:1.25rem;
+  margin-top:1.5rem;
+}
+
+.estimate-row{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border);
+  color:var(--gray);
+  font-size:.92rem;
+}
+
+.estimate-row:last-child{
+  border-bottom:none;
+}
+
+.estimate-row strong{
+  color:var(--black);
+}
+
 .form-card{
   border:1px solid var(--border);
   background:white;
@@ -375,24 +400,24 @@ footer{
     <a href="florals.html">Florals</a>
     <a href="packages.html">Packages</a>
     <a href="quote.html">Quote</a>
-    <a href="contact.html">Contact</a>
     <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <section class="page-hero">
   <div class="page-hero-content">
-    <p class="eyebrow">Quote Request</p>
+    <p class="eyebrow">Request a Quote</p>
     <h1>Tell us about your event.</h1>
 
     <p>
-      Review your selected cart, package, and add-ons. Then share your event date,
-      location, guest count, and vision so we can prepare a custom quote.
+      Review your selected package and wedding floral items, then share your event date,
+      location, guest count, color palette, and vision so we can prepare a custom quote.
     </p>
 
     <div class="button-row">
       <a class="button dark" href="#quote-form">Start Request</a>
-      <a class="button" href="packages.html">Edit Package</a>
+      <a class="button" href="packages.html">Edit Selections</a>
     </div>
   </div>
 </section>
@@ -401,21 +426,38 @@ footer{
   <div class="container quote-layout">
 
     <aside class="summary-card">
-      <p class="eyebrow">Your Selections</p>
-      <h2>Quote Summary</h2>
+      <p class="eyebrow">Your Event Selections</p>
+      <h2>Review Your Quote</h2>
 
       <ul class="summary-list" id="summaryList">
         <li class="empty-message">No selections have been added yet.</li>
       </ul>
 
+      <div class="estimate-box">
+        <div class="estimate-row">
+          <span>Package total</span>
+          <strong>$0.00</strong>
+        </div>
+
+        <div class="estimate-row">
+          <span>Wedding floral items</span>
+          <strong>$0.00</strong>
+        </div>
+
+        <div class="estimate-row">
+          <span>Estimated subtotal</span>
+          <strong>$0.00</strong>
+        </div>
+      </div>
+
       <div class="button-row">
-        <a class="button" href="packages.html">Edit Package</a>
+        <a class="button" href="packages.html">Edit Selections</a>
       </div>
 
       <div class="note-box">
         <p>
           Final pricing may vary based on event location, floral availability,
-          setup needs, customization, delivery, and selected rentals.
+          guest count, setup needs, customization, delivery, and selected event details.
         </p>
       </div>
     </aside>
@@ -440,7 +482,8 @@ footer{
                 <option>Bridal Shower</option>
                 <option>Baby Shower</option>
                 <option>Birthday</option>
-                <option>Wedding Weekend</option>
+                <option>Gender Reveal</option>
+                <option>Wedding Florals</option>
                 <option>Corporate Event</option>
                 <option>Pop-Up</option>
                 <option>Other</option>
@@ -481,7 +524,17 @@ footer{
 
           <div class="form-field">
             <label for="vision">Event Notes</label>
-            <textarea id="vision" name="vision" placeholder="Tell us about your event style, inspiration, must-haves, or anything you want us to know."></textarea>
+            <textarea id="vision" name="vision" placeholder="Tell us about your event style, inspiration, must-haves, timing, setup needs, or anything you want us to know."></textarea>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <p class="eyebrow">Custom Requests</p>
+          <h3>Need something else?</h3>
+
+          <div class="form-field">
+            <label for="customRequests">Additional Details</label>
+            <textarea id="customRequests" name="customRequests" placeholder="Add any extra floral pieces, package adjustments, delivery notes, or questions here."></textarea>
           </div>
         </div>
 
@@ -530,7 +583,7 @@ footer{
   <div class="footer-inner">
     <div class="footer-brand">
       <h2>Theodoro Collective</h2>
-      <p>Elevated event rentals and floral experiences.</p>
+      <p>Elevated florals and event details.</p>
     </div>
 
     <div class="footer-links">
@@ -571,7 +624,8 @@ const nav = document.querySelector(".nav");
 
 toggle.onclick = () => nav.classList.toggle("open");
 
-const selectedCart = localStorage.getItem("selectedCart");
+localStorage.removeItem("selectedCart");
+
 const selectedPackage = localStorage.getItem("selectedPackage");
 const selectedAddons = JSON.parse(localStorage.getItem("selectedAddons")) || [];
 
@@ -580,17 +634,13 @@ const summaryList = document.getElementById("summaryList");
 function renderSummary(){
   const items = [];
 
-  if(selectedCart){
-    items.push(`<li><strong>Cart:</strong> ${selectedCart}</li>`);
-  }
-
   if(selectedPackage){
-    items.push(`<li><strong>Package:</strong> ${selectedPackage}</li>`);
+    items.push(`<li><strong>Selected Package:</strong> ${selectedPackage}</li>`);
   }
 
   if(selectedAddons.length > 0){
-    selectedAddons.forEach(addon => {
-      items.push(`<li><strong>Add-On:</strong> ${addon}</li>`);
+    selectedAddons.forEach(item => {
+      items.push(`<li><strong>Wedding Floral Item:</strong> ${item}</li>`);
     });
   }
 
