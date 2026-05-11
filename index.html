@@ -146,17 +146,6 @@ a{text-decoration:none;color:inherit;}
   color:white;
 }
 
-.button.accent{
-  background:var(--sage);
-  border:1px solid var(--sage);
-  color:white;
-}
-
-.button.accent:hover{
-  background:#74826e;
-  border-color:#74826e;
-}
-
 .section-padding{padding:5rem 5%;}
 
 .container{
@@ -217,6 +206,10 @@ a{text-decoration:none;color:inherit;}
   grid-template-columns:repeat(3,1fr);
   gap:1.5rem;
   margin-top:2rem;
+}
+
+.two-card-grid{
+  grid-template-columns:repeat(2,1fr);
 }
 
 .category-card{
@@ -368,7 +361,8 @@ footer{
   }
 
   .steps,
-  .category-grid{
+  .category-grid,
+  .two-card-grid{
     grid-template-columns:1fr;
   }
 
@@ -410,22 +404,22 @@ footer{
     <a href="florals.html">Florals</a>
     <a href="packages.html">Packages</a>
     <a href="quote.html">Quote</a>
-    <a href="contact.html">Contact</a>
     <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Elevated event rentals designed around your celebration.</h1>
+    <h1>Elevated floral and rental details designed around your celebration.</h1>
 
     <p>
-      Bloom bars, styled carts, and curated rental moments designed to feel polished,
-      personal, and memorable.
+      Signature event packages, bloom bars, seasonal florals, and curated details
+      designed to feel polished, personal, and memorable.
     </p>
 
     <div class="button-row">
-      <a class="button dark" href="packages.html">Build Your Package</a>
+      <a class="button dark" href="packages.html">Explore Packages</a>
       <a class="button" href="florals.html">Explore Florals</a>
     </div>
   </div>
@@ -441,7 +435,7 @@ footer{
       The Theodoro Collective is rooted in a passion for thoughtful details,
       seasonal florals, and creating moments that feel special. What started as
       a love for growing, arranging, and styling florals has grown into a vision
-      for elevated rentals that help bring beautiful gatherings to life.
+      for elevated event details that help bring beautiful gatherings to life.
     </p>
 
     <a class="button dark" href="florals.html">Explore Our Floral Story</a>
@@ -456,19 +450,19 @@ footer{
       <div class="step">
         <span>01</span>
         <h3>Choose Package</h3>
-        <p>Select your base experience.</p>
+        <p>Select the signature package or floral foundation that best fits your event.</p>
       </div>
 
       <div class="step">
         <span>02</span>
         <h3>Add Details</h3>
-        <p>Customize after selection.</p>
+        <p>Customize with floral upgrades, signage, styling pieces, or event extras.</p>
       </div>
 
       <div class="step">
         <span>03</span>
         <h3>Request Quote</h3>
-        <p>Submit your event information.</p>
+        <p>Submit your event date, location, guest count, and vision.</p>
       </div>
     </div>
   </div>
@@ -478,7 +472,27 @@ footer{
   <div class="container">
     <h2>Start with what you need</h2>
 
-    <div class="category-grid">
+    <div class="category-grid two-card-grid">
+
+      <a class="category-card" href="packages.html">
+        <img
+          src="https://images.pexels.com/photos/6216267/pexels-photo-6216267.jpeg"
+          alt="Styled event package setup"
+        >
+
+        <div class="card-content">
+          <h3>Signature Packages</h3>
+
+          <p>
+            Browse curated event packages for bridal showers, birthdays,
+            gender reveals, weddings, and other gatherings — then customize
+            the details to fit your celebration.
+          </p>
+
+          <span class="card-button">Explore Packages</span>
+        </div>
+      </a>
+
       <a class="category-card" href="florals.html">
         <img
           src="https://images.pexels.com/photos/28768708/pexels-photo-28768708.jpeg"
@@ -487,45 +501,17 @@ footer{
 
         <div class="card-content">
           <h3>Florals</h3>
+
           <p>
-            Bloom bars, seasonal stems, bouquet moments, and floral details designed
-            to bring beauty, color, and intention to your gathering.
+            Explore bloom bars, seasonal stems, bouquet moments,
+            and floral details designed to bring beauty, color,
+            and intention to your gathering.
           </p>
+
           <span class="card-button">Explore Florals</span>
         </div>
       </a>
 
-      <a class="category-card" href="carts.html">
-        <img
-          src="https://images.pexels.com/photos/36373129/pexels-photo-36373129.jpeg"
-          alt="White floral cart with neutral styling"
-        >
-
-        <div class="card-content">
-          <h3>Cart Rentals</h3>
-          <p>
-            Browse bloom carts, beverage carts, and flexible rental setups designed
-            for showers, celebrations, birthdays, and gatherings.
-          </p>
-          <span class="card-button">View Cart Rentals</span>
-        </div>
-      </a>
-
-      <a class="category-card" href="packages.html">
-        <img
-          src="https://images.pexels.com/photos/6216267/pexels-photo-6216267.jpeg"
-          alt="Styled floral package setup"
-        >
-
-        <div class="card-content">
-          <h3>Build a Package</h3>
-          <p>
-            Select your base package first, then unlock add-ons and details to create
-            a quote tailored to your event.
-          </p>
-          <span class="card-button">Build Your Package</span>
-        </div>
-      </a>
     </div>
   </div>
 </section>
@@ -537,9 +523,9 @@ footer{
     <h2>Rooted in florals, built for gatherings.</h2>
 
     <p>
-      The Theodoro Collective blends florals, cart rentals, and thoughtful details
-      into elevated event experiences. Each setup is designed to feel intentional,
-      flexible, and tailored to your celebration.
+      The Theodoro Collective blends seasonal florals, thoughtful rental details,
+      and curated event extras into elevated experiences. Each setup is designed
+      to feel intentional, flexible, and tailored to your celebration.
     </p>
   </div>
 </section>
@@ -552,14 +538,12 @@ footer{
       <h2>Build a package around your event.</h2>
 
       <p>
-        Choose your base package first, then customize your setup with add-ons
-        that fit your event style and needs.
+        Choose your signature package first, then customize your setup with floral details,
+        signage, styling pieces, and add-ons that fit your event style and needs.
       </p>
 
       <div class="button-row" style="justify-content:center;">
-        <a class="button" href="packages.html">
-  Build Your Package
-</a>
+        <a class="button" href="packages.html">Explore Packages</a>
       </div>
     </div>
   </div>
@@ -569,7 +553,7 @@ footer{
   <div class="footer-inner">
     <div class="footer-brand">
       <h2>Theodoro Collective</h2>
-      <p>Elevated event rentals and floral experiences.</p>
+      <p>Elevated florals and event rental details.</p>
     </div>
 
     <div class="footer-links">
