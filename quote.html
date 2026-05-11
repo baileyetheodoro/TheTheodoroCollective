@@ -375,19 +375,19 @@ footer{
     <a href="florals.html">Florals</a>
     <a href="packages.html">Packages</a>
     <a href="quote.html">Quote</a>
-    <a href="contact.html">Contact</a>
     <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <section class="page-hero">
   <div class="page-hero-content">
-    <p class="eyebrow">Quote Request</p>
+    <p class="eyebrow">Request a Quote</p>
     <h1>Tell us about your event.</h1>
 
     <p>
-      Review your selected cart, package, and add-ons. Then share your event date,
-      location, guest count, and vision so we can prepare a custom quote.
+      Review your selected package and add-ons. Then share your event date,
+      location, guest count, color palette, and vision so we can prepare a custom quote.
     </p>
 
     <div class="button-row">
@@ -415,7 +415,7 @@ footer{
       <div class="note-box">
         <p>
           Final pricing may vary based on event location, floral availability,
-          setup needs, customization, delivery, and selected rentals.
+          setup needs, customization, delivery, and selected event details.
         </p>
       </div>
     </aside>
@@ -440,6 +440,7 @@ footer{
                 <option>Bridal Shower</option>
                 <option>Baby Shower</option>
                 <option>Birthday</option>
+                <option>Gender Reveal</option>
                 <option>Wedding Weekend</option>
                 <option>Corporate Event</option>
                 <option>Pop-Up</option>
@@ -530,7 +531,7 @@ footer{
   <div class="footer-inner">
     <div class="footer-brand">
       <h2>Theodoro Collective</h2>
-      <p>Elevated event rentals and floral experiences.</p>
+      <p>Elevated florals and event rental details.</p>
     </div>
 
     <div class="footer-links">
@@ -571,7 +572,8 @@ const nav = document.querySelector(".nav");
 
 toggle.onclick = () => nav.classList.toggle("open");
 
-const selectedCart = localStorage.getItem("selectedCart");
+localStorage.removeItem("selectedCart");
+
 const selectedPackage = localStorage.getItem("selectedPackage");
 const selectedAddons = JSON.parse(localStorage.getItem("selectedAddons")) || [];
 
@@ -579,10 +581,6 @@ const summaryList = document.getElementById("summaryList");
 
 function renderSummary(){
   const items = [];
-
-  if(selectedCart){
-    items.push(`<li><strong>Cart:</strong> ${selectedCart}</li>`);
-  }
 
   if(selectedPackage){
     items.push(`<li><strong>Package:</strong> ${selectedPackage}</li>`);
