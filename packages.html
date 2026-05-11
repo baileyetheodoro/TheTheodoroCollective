@@ -33,16 +33,25 @@ h1,h2,h3,.logo{
   font-weight:500;
 }
 
-h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.05;}
-h2{font-size:clamp(2rem,4vw,3rem);}
-h3{font-size:1.25rem;}
+h1{
+  font-size:clamp(2.8rem,6vw,5.3rem);
+  line-height:1.05;
+}
+
+h2{
+  font-size:clamp(2rem,4vw,3rem);
+}
+
+h3{
+  font-size:1.25rem;
+}
 
 p{color:var(--gray);}
 a{text-decoration:none;color:inherit;}
 
 .announcement{
   background:var(--black);
-  color:var(--white);
+  color:white;
   text-align:center;
   padding:.6rem;
   font-size:.75rem;
@@ -63,7 +72,9 @@ a{text-decoration:none;color:inherit;}
   z-index:100;
 }
 
-.logo{font-size:1.3rem;}
+.logo{
+  font-size:1.3rem;
+}
 
 .nav{
   display:flex;
@@ -73,7 +84,9 @@ a{text-decoration:none;color:inherit;}
   letter-spacing:.1em;
 }
 
-.nav a:hover{color:var(--sage);}
+.nav a:hover{
+  color:var(--sage);
+}
 
 .nav-toggle{
   display:none;
@@ -92,7 +105,9 @@ a{text-decoration:none;color:inherit;}
   background-position:center;
 }
 
-.page-hero-content{max-width:780px;}
+.page-hero-content{
+  max-width:780px;
+}
 
 .page-hero p{
   margin-top:1.2rem;
@@ -100,7 +115,9 @@ a{text-decoration:none;color:inherit;}
   font-size:1.05rem;
 }
 
-.section-padding{padding:5rem 5%;}
+.section-padding{
+  padding:5rem 5%;
+}
 
 .container{
   max-width:1100px;
@@ -140,37 +157,37 @@ a{text-decoration:none;color:inherit;}
   background:transparent;
 }
 
-.button:hover{transform:translateY(-2px);}
+.button:hover{
+  transform:translateY(-2px);
+}
 
 .button.dark{
   background:var(--black);
   color:white;
 }
 
-.filter-row{
+.event-filter-wrap{
+  max-width:360px;
+  margin:2.5rem auto 0;
   display:flex;
-  gap:.75rem;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:2.5rem;
+  flex-direction:column;
+  gap:.5rem;
 }
 
-.filter-button{
-  border:1px solid var(--border);
-  background:white;
-  padding:.75rem 1rem;
-  font-size:.72rem;
+.event-filter-wrap label{
+  font-size:.75rem;
   text-transform:uppercase;
-  letter-spacing:.08em;
-  cursor:pointer;
-  transition:.2s ease;
+  letter-spacing:.12em;
+  color:var(--gray);
 }
 
-.filter-button:hover,
-.filter-button.active{
-  background:var(--black);
-  color:white;
-  border-color:var(--black);
+.event-filter{
+  width:100%;
+  padding:1rem;
+  border:1px solid var(--black);
+  background:white;
+  font:inherit;
+  color:var(--black);
 }
 
 .event-section{
@@ -180,15 +197,15 @@ a{text-decoration:none;color:inherit;}
 .event-header{
   display:flex;
   justify-content:space-between;
-  gap:2rem;
   align-items:end;
+  gap:2rem;
+  margin-bottom:2rem;
   border-bottom:1px solid var(--border);
-  padding-bottom:1.25rem;
-  margin-bottom:1.5rem;
+  padding-bottom:1rem;
 }
 
 .event-header p{
-  max-width:520px;
+  max-width:500px;
 }
 
 .package-grid{
@@ -200,10 +217,8 @@ a{text-decoration:none;color:inherit;}
 .package-card{
   border:1px solid var(--border);
   background:white;
-  padding:1.25rem;
+  overflow:hidden;
   transition:.2s ease;
-  display:flex;
-  flex-direction:column;
 }
 
 .package-card:hover{
@@ -213,7 +228,6 @@ a{text-decoration:none;color:inherit;}
 
 .package-image{
   aspect-ratio:4 / 5;
-  border:1px solid var(--border);
   background:
     linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
     linear-gradient(135deg, var(--ivory), #fdfbf8, #eee5dc);
@@ -222,8 +236,6 @@ a{text-decoration:none;color:inherit;}
   justify-content:center;
   text-align:center;
   padding:1rem;
-  margin-bottom:1.25rem;
-  overflow:hidden;
 }
 
 .package-image span{
@@ -233,18 +245,8 @@ a{text-decoration:none;color:inherit;}
   letter-spacing:.12em;
 }
 
-.package-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
 .package-body{
-  padding:.75rem;
-  display:flex;
-  flex-direction:column;
-  flex:1;
+  padding:1.5rem;
 }
 
 .package-label{
@@ -256,21 +258,20 @@ a{text-decoration:none;color:inherit;}
   display:block;
 }
 
-.package-card p{
+.package-body p{
   margin-top:.75rem;
 }
 
 .package-list{
   list-style:none;
   margin-top:1.25rem;
-  flex:1;
 }
 
 .package-list li{
+  padding:.5rem 0;
+  border-bottom:1px solid var(--border);
   color:var(--gray);
   font-size:.92rem;
-  padding:.45rem 0;
-  border-bottom:1px solid var(--border);
 }
 
 .package-list li:last-child{
@@ -284,15 +285,15 @@ a{text-decoration:none;color:inherit;}
 }
 
 .select-package{
-  margin-top:1.5rem;
   width:100%;
+  margin-top:1.5rem;
 }
 
 .builder-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:1rem;
-  margin-top:1.5rem;
+  margin-top:2rem;
 }
 
 .builder-item{
@@ -300,14 +301,13 @@ a{text-decoration:none;color:inherit;}
   background:white;
   padding:1rem;
   display:grid;
-  grid-template-columns:110px 1fr auto;
+  grid-template-columns:100px 1fr auto;
   gap:1rem;
   align-items:center;
 }
 
 .builder-image{
-  aspect-ratio:1 / 1;
-  border:1px solid var(--border);
+  aspect-ratio:1/1;
   background:
     linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
     linear-gradient(135deg, var(--ivory), #fdfbf8, #eee5dc);
@@ -315,8 +315,7 @@ a{text-decoration:none;color:inherit;}
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:.75rem;
-  overflow:hidden;
+  padding:.5rem;
 }
 
 .builder-image span{
@@ -324,18 +323,6 @@ a{text-decoration:none;color:inherit;}
   font-size:.62rem;
   text-transform:uppercase;
   letter-spacing:.1em;
-}
-
-.builder-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.builder-item p{
-  font-size:.9rem;
-  margin-top:.25rem;
 }
 
 .qty-controls{
@@ -356,19 +343,18 @@ a{text-decoration:none;color:inherit;}
 .qty-number{
   min-width:24px;
   text-align:center;
-  color:var(--black);
 }
 
 .custom-card{
+  margin-top:4rem;
   border:1px solid var(--border);
-  background:white;
-  padding:2.5rem;
+  background:var(--ivory);
+  padding:3rem;
   text-align:center;
-  margin-top:3rem;
 }
 
 .custom-card p{
-  max-width:620px;
+  max-width:650px;
   margin:1rem auto 0;
 }
 
@@ -380,35 +366,32 @@ a{text-decoration:none;color:inherit;}
   color:white;
   padding:1rem 5%;
   z-index:90;
-  border-top:1px solid rgba(255,255,255,.2);
 }
 
-.quote-preview.active{display:block;}
+.quote-preview.active{
+  display:block;
+}
 
 .quote-inner{
   max-width:1100px;
   margin:auto;
   display:flex;
   justify-content:space-between;
-  gap:1rem;
   align-items:center;
+  gap:1rem;
   flex-wrap:wrap;
 }
 
-.quote-inner p{
+.quote-items{
   color:#ddd;
   font-size:.9rem;
-}
-
-.quote-items{
-  color:white;
-  font-size:.85rem;
 }
 
 footer{
   background:black;
   color:white;
   padding:3rem 5%;
+  margin-top:5rem;
 }
 
 .footer-inner{
@@ -416,47 +399,18 @@ footer{
   margin:auto;
   display:flex;
   justify-content:space-between;
-  align-items:flex-start;
   gap:2rem;
   flex-wrap:wrap;
 }
 
-.footer-brand h2{font-size:1.6rem;}
+.footer-brand h2{
+  font-size:1.6rem;
+}
 
 .footer-brand p{
   color:#ccc;
   margin-top:.5rem;
   font-size:.85rem;
-}
-
-.footer-links{
-  display:flex;
-  gap:.75rem;
-  flex-wrap:wrap;
-  align-items:center;
-}
-
-.footer-links a{
-  color:white;
-  width:38px;
-  height:38px;
-  border:1px solid rgba(255,255,255,.35);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.2s ease;
-}
-
-.footer-links a:hover{
-  background:var(--sage);
-  border-color:var(--sage);
-}
-
-.footer-links svg{
-  width:18px;
-  height:18px;
-  fill:currentColor;
 }
 
 .footer-bottom{
@@ -469,7 +423,10 @@ footer{
 }
 
 @media(max-width:850px){
-  .nav{display:none;}
+
+  .nav{
+    display:none;
+  }
 
   .nav.open{
     display:flex;
@@ -483,28 +440,22 @@ footer{
     border-bottom:1px solid var(--border);
   }
 
-  .nav-toggle{display:block;}
+  .nav-toggle{
+    display:block;
+  }
 
   .package-grid,
   .builder-grid{
     grid-template-columns:1fr;
   }
 
-  .event-header{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
   .builder-item{
     grid-template-columns:1fr;
   }
 
-  .builder-image{
-    aspect-ratio:4 / 3;
-  }
-
-  .qty-controls{
-    justify-content:flex-start;
+  .event-header{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .button-row{
@@ -520,10 +471,6 @@ footer{
     align-items:flex-start;
   }
 
-  .quote-inner .button{
-    width:100%;
-  }
-
   .footer-inner{
     flex-direction:column;
   }
@@ -536,6 +483,7 @@ footer{
 <div class="announcement">Shop Signature Event Packages</div>
 
 <header class="site-header">
+
   <div class="logo">Theodoro Collective</div>
 
   <button class="nav-toggle">☰</button>
@@ -548,629 +496,545 @@ footer{
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
   </nav>
+
 </header>
 
 <section class="page-hero">
+
   <div class="page-hero-content">
+
     <p class="eyebrow">Signature Packages</p>
+
     <h1>Shop by event, then customize the details.</h1>
 
     <p>
-      Browse curated package starting points for showers, celebrations, bloom bars,
-      and wedding florals. Select the option that feels closest, then add details
-      before requesting your custom quote.
+      Browse curated package starting points for showers, bloom bars,
+      celebrations, and wedding florals. Select the option that feels closest,
+      then continue building your quote.
     </p>
 
     <div class="button-row">
       <a class="button dark" href="#shop">Shop Packages</a>
       <a class="button" href="contact.html">Need Something Custom?</a>
     </div>
+
   </div>
+
 </section>
 
 <section class="section-padding" id="shop">
-  <div class="container narrow">
-    <p class="eyebrow">Shop by Event</p>
-    <h2>Choose your celebration type.</h2>
-    <p>
-      Petite, Signature, and Grand options help you compare scale and style before requesting a quote.
-    </p>
-  </div>
 
-  <div class="filter-row">
-    <button class="filter-button active" data-filter="all">All</button>
-    <button class="filter-button" data-filter="baby">Baby Shower</button>
-    <button class="filter-button" data-filter="bridal">Bridal Shower</button>
-    <button class="filter-button" data-filter="gender">Gender Reveal</button>
-    <button class="filter-button" data-filter="bloom">Bloom Bar</button>
-    <button class="filter-button" data-filter="wedding">Wedding Florals</button>
+  <div class="container narrow">
+
+    <p class="eyebrow">Shop by Event</p>
+
+    <h2>Choose your celebration type.</h2>
+
+    <p>
+      Petite, Signature, and Grand package tiers help compare scale and styling.
+    </p>
+
+    <div class="event-filter-wrap">
+
+      <label for="eventFilter">Event Type</label>
+
+      <select id="eventFilter" class="event-filter">
+        <option value="all">All Packages</option>
+        <option value="baby">Baby Shower</option>
+        <option value="bridal">Bridal Shower</option>
+        <option value="gender">Gender Reveal</option>
+        <option value="bloom">Bloom Bar</option>
+        <option value="wedding">Wedding Florals</option>
+      </select>
+
+    </div>
+
   </div>
 
   <div class="container">
 
+    <!-- BABY SHOWER -->
+
     <div class="event-section package-category" data-category="baby">
+
       <div class="event-header">
         <div>
           <p class="eyebrow">Baby Shower</p>
           <h2>Baby Shower Packages</h2>
         </div>
-        <p>Soft, thoughtful floral and decor details for celebrating the arrival of something sweet.</p>
+
+        <p>
+          Soft, elevated floral and decor details for celebrating something sweet.
+        </p>
       </div>
 
       <div class="package-grid">
 
         <div class="package-card">
+
           <div class="package-image">
             <span>Petite Baby Shower<br>Photo Coming Soon</span>
           </div>
 
           <div class="package-body">
+
             <span class="package-label">Petite</span>
+
             <h3>Petite Baby Shower</h3>
-            <p>A simple, polished starting point for intimate showers.</p>
+
+            <p>A polished floral touch for smaller gatherings.</p>
+
             <ul class="package-list">
-              <li>Small floral moment</li>
-              <li>Welcome or table accent styling</li>
-              <li>Color palette direction</li>
+              <li>Small floral detail</li>
+              <li>Palette styling</li>
+              <li>Simple setup accents</li>
             </ul>
+
             <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Petite Baby Shower">Add to Quote</button>
+
+            <button class="button select-package" data-package="Petite Baby Shower">
+              Add to Quote
+            </button>
+
           </div>
+
         </div>
 
         <div class="package-card">
+
           <div class="package-image">
             <span>Signature Baby Shower<br>Photo Coming Soon</span>
           </div>
 
           <div class="package-body">
+
             <span class="package-label">Signature</span>
+
             <h3>Signature Baby Shower</h3>
-            <p>A fuller shower setup with florals and styled details.</p>
+
+            <p>A fuller floral and styling package.</p>
+
             <ul class="package-list">
-              <li>Statement floral detail</li>
-              <li>Signage or display styling</li>
-              <li>Coordinated event accents</li>
+              <li>Statement floral styling</li>
+              <li>Welcome display accents</li>
+              <li>Decor coordination</li>
             </ul>
+
             <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Signature Baby Shower">Add to Quote</button>
+
+            <button class="button select-package" data-package="Signature Baby Shower">
+              Add to Quote
+            </button>
+
           </div>
+
         </div>
 
         <div class="package-card">
+
           <div class="package-image">
             <span>Grand Baby Shower<br>Photo Coming Soon</span>
           </div>
 
           <div class="package-body">
+
             <span class="package-label">Grand</span>
+
             <h3>Grand Baby Shower</h3>
-            <p>A more elevated package for larger or highly styled showers.</p>
+
+            <p>A larger-scale celebration package.</p>
+
             <ul class="package-list">
-              <li>Larger floral installation moment</li>
-              <li>Enhanced signage/display styling</li>
-              <li>Expanded decorative details</li>
+              <li>Expanded floral installation</li>
+              <li>Enhanced styling moments</li>
+              <li>Decor layering</li>
             </ul>
+
             <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Grand Baby Shower">Add to Quote</button>
+
+            <button class="button select-package" data-package="Grand Baby Shower">
+              Add to Quote
+            </button>
+
           </div>
+
         </div>
 
       </div>
+
     </div>
 
-    <div class="event-section package-category" data-category="bridal">
-      <div class="event-header">
-        <div>
-          <p class="eyebrow">Bridal Shower</p>
-          <h2>Bridal Shower Packages</h2>
-        </div>
-        <p>Romantic, elevated styling for showers, brunches, and pre-wedding celebrations.</p>
-      </div>
-
-      <div class="package-grid">
-
-        <div class="package-card">
-          <div class="package-image">
-            <span>Petite Bridal Shower<br>Photo Coming Soon</span>
-          </div>
-
-          <div class="package-body">
-            <span class="package-label">Petite</span>
-            <h3>Petite Bridal Shower</h3>
-            <p>A refined floral touch for smaller bridal gatherings.</p>
-            <ul class="package-list">
-              <li>Small floral arrangement or accent</li>
-              <li>Simple palette styling</li>
-              <li>Optional signage detail</li>
-            </ul>
-            <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Petite Bridal Shower">Add to Quote</button>
-          </div>
-        </div>
-
-        <div class="package-card">
-          <div class="package-image">
-            <span>Signature Bridal Shower<br>Photo Coming Soon</span>
-          </div>
-
-          <div class="package-body">
-            <span class="package-label">Signature</span>
-            <h3>Signature Bridal Shower</h3>
-            <p>A polished floral and styling package for a classic bridal shower.</p>
-            <ul class="package-list">
-              <li>Statement floral moment</li>
-              <li>Welcome/display styling</li>
-              <li>Coordinated floral details</li>
-            </ul>
-            <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Signature Bridal Shower">Add to Quote</button>
-          </div>
-        </div>
-
-        <div class="package-card">
-          <div class="package-image">
-            <span>Grand Bridal Shower<br>Photo Coming Soon</span>
-          </div>
-
-          <div class="package-body">
-            <span class="package-label">Grand</span>
-            <h3>Grand Bridal Shower</h3>
-            <p>A fuller, more styled option for larger bridal celebrations.</p>
-            <ul class="package-list">
-              <li>Expanded floral styling</li>
-              <li>Photo moment or display area</li>
-              <li>Enhanced decorative accents</li>
-            </ul>
-            <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Grand Bridal Shower">Add to Quote</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="event-section package-category" data-category="gender">
-      <div class="event-header">
-        <div>
-          <p class="eyebrow">Gender Reveal</p>
-          <h2>Gender Reveal Packages</h2>
-        </div>
-        <p>Sweet, celebratory details designed around your reveal moment and color palette.</p>
-      </div>
-
-      <div class="package-grid">
-
-        <div class="package-card">
-          <div class="package-image">
-            <span>Petite Gender Reveal<br>Photo Coming Soon</span>
-          </div>
-
-          <div class="package-body">
-            <span class="package-label">Petite</span>
-            <h3>Petite Gender Reveal</h3>
-            <p>A simple reveal setup with thoughtful styling.</p>
-            <ul class="package-list">
-              <li>Small styled detail</li>
-              <li>Soft floral accent</li>
-              <li>Palette guidance</li>
-            </ul>
-            <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Petite Gender Reveal">Add to Quote</button>
-          </div>
-        </div>
-
-        <div class="package-card">
-          <div class="package-image">
-            <span>Signature Gender Reveal<br>Photo Coming Soon</span>
-          </div>
-
-          <div class="package-body">
-            <span class="package-label">Signature</span>
-            <h3>Signature Gender Reveal</h3>
-            <p>A more complete styling package for a polished reveal moment.</p>
-            <ul class="package-list">
-              <li>Styled reveal display</li>
-              <li>Floral or faux floral accents</li>
-              <li>Coordinated decorative details</li>
-            </ul>
-            <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Signature Gender Reveal">Add to Quote</button>
-          </div>
-        </div>
-
-        <div class="package-card">
-          <div class="package-image">
-            <span>Grand Gender Reveal<br>Photo Coming Soon</span>
-          </div>
-
-          <div class="package-body">
-            <span class="package-label">Grand</span>
-            <h3>Grand Gender Reveal</h3>
-            <p>A bigger visual moment for larger celebrations.</p>
-            <ul class="package-list">
-              <li>Larger display styling</li>
-              <li>Enhanced floral details</li>
-              <li>Expanded guest-facing accents</li>
-            </ul>
-            <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Grand Gender Reveal">Add to Quote</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <!-- BLOOM BAR -->
 
     <div class="event-section package-category" data-category="bloom">
+
       <div class="event-header">
         <div>
           <p class="eyebrow">Bloom Bar</p>
           <h2>Bloom Bar Packages</h2>
         </div>
-        <p>Interactive floral experiences for showers, birthdays, pop-ups, and gatherings.</p>
+
+        <p>
+          Interactive floral experiences for showers, birthdays, pop-ups, and events.
+        </p>
       </div>
 
       <div class="package-grid">
 
         <div class="package-card">
+
           <div class="package-image">
             <span>Petite Bloom Bar<br>Photo Coming Soon</span>
           </div>
 
           <div class="package-body">
+
             <span class="package-label">Petite</span>
+
             <h3>Petite Bloom Bar</h3>
-            <p>A petite bloom bar experience for smaller groups.</p>
+
+            <p>A smaller bloom bar setup for intimate events.</p>
+
             <ul class="package-list">
               <li>Simple stem selection</li>
               <li>Basic bouquet supplies</li>
-              <li>Guest-friendly setup</li>
+              <li>Guest setup styling</li>
             </ul>
+
             <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Petite Bloom Bar">Add to Quote</button>
+
+            <button class="button select-package" data-package="Petite Bloom Bar">
+              Add to Quote
+            </button>
+
           </div>
+
         </div>
 
         <div class="package-card">
+
           <div class="package-image">
             <span>Signature Bloom Bar<br>Photo Coming Soon</span>
           </div>
 
           <div class="package-body">
+
             <span class="package-label">Signature</span>
+
             <h3>Signature Bloom Bar</h3>
-            <p>A fuller bloom bar experience with more variety and styling.</p>
+
+            <p>A fuller floral experience with more variety.</p>
+
             <ul class="package-list">
-              <li>Expanded stem selection</li>
+              <li>Expanded stem options</li>
               <li>Ribbon + bouquet supplies</li>
-              <li>Optional signage styling</li>
+              <li>Styled display details</li>
             </ul>
+
             <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Signature Bloom Bar">Add to Quote</button>
+
+            <button class="button select-package" data-package="Signature Bloom Bar">
+              Add to Quote
+            </button>
+
           </div>
+
         </div>
 
         <div class="package-card">
+
           <div class="package-image">
             <span>Grand Bloom Bar<br>Photo Coming Soon</span>
           </div>
 
           <div class="package-body">
+
             <span class="package-label">Grand</span>
+
             <h3>Grand Bloom Bar</h3>
-            <p>A larger, more styled bloom bar for bigger guest experiences.</p>
+
+            <p>A larger-scale guest floral experience.</p>
+
             <ul class="package-list">
-              <li>Premium stem variety</li>
-              <li>Enhanced guest supplies</li>
-              <li>Styled display details</li>
+              <li>Premium stem assortment</li>
+              <li>Enhanced styling details</li>
+              <li>Expanded guest experience</li>
             </ul>
+
             <p class="price">$0.00</p>
-            <button class="button select-package" data-package="Grand Bloom Bar">Add to Quote</button>
+
+            <button class="button select-package" data-package="Grand Bloom Bar">
+              Add to Quote
+            </button>
+
           </div>
+
         </div>
 
       </div>
+
     </div>
 
+    <!-- WEDDING FLORALS -->
+
     <div class="event-section package-category" data-category="wedding">
+
       <div class="event-header">
         <div>
           <p class="eyebrow">Wedding Florals</p>
           <h2>Wedding Floral Builder</h2>
         </div>
-        <p>Select floral pieces and quantities to include in your quote request.</p>
+
+        <p>
+          Add floral pieces and quantities to build your custom wedding quote.
+        </p>
       </div>
 
       <div class="builder-grid">
 
         <div class="builder-item">
+
           <div class="builder-image">
-            <span>Photo<br>Coming Soon</span>
+            <span>Bridal Bouquet<br>Photo Coming Soon</span>
           </div>
+
           <div>
             <h3>Bridal Bouquet</h3>
             <p>Statement bouquet designed around your palette.</p>
           </div>
+
           <div class="qty-controls" data-item="Bridal Bouquet">
             <button class="qty-button minus">−</button>
             <span class="qty-number">0</span>
             <button class="qty-button plus">+</button>
           </div>
+
         </div>
 
         <div class="builder-item">
+
           <div class="builder-image">
-            <span>Photo<br>Coming Soon</span>
+            <span>Bridesmaid Bouquet<br>Photo Coming Soon</span>
           </div>
+
           <div>
             <h3>Bridesmaid Bouquet</h3>
             <p>Coordinating bouquets for your bridal party.</p>
           </div>
+
           <div class="qty-controls" data-item="Bridesmaid Bouquet">
             <button class="qty-button minus">−</button>
             <span class="qty-number">0</span>
             <button class="qty-button plus">+</button>
           </div>
+
         </div>
 
         <div class="builder-item">
+
           <div class="builder-image">
-            <span>Photo<br>Coming Soon</span>
+            <span>Pocket Square Boutonnière<br>Photo Coming Soon</span>
           </div>
+
           <div>
             <h3>Pocket Boutonnière</h3>
-            <p>A floral pocket square designed as an elevated boutonnière alternative.</p>
+            <p>An elevated floral pocket square alternative.</p>
           </div>
+
           <div class="qty-controls" data-item="Pocket Boutonnière">
             <button class="qty-button minus">−</button>
             <span class="qty-number">0</span>
             <button class="qty-button plus">+</button>
           </div>
-        </div>
 
-        <div class="builder-item">
-          <div class="builder-image">
-            <span>Photo<br>Coming Soon</span>
-          </div>
-          <div>
-            <h3>Bud Vase</h3>
-            <p>Small table floral moments for reception or cocktail areas.</p>
-          </div>
-          <div class="qty-controls" data-item="Bud Vase">
-            <button class="qty-button minus">−</button>
-            <span class="qty-number">0</span>
-            <button class="qty-button plus">+</button>
-          </div>
-        </div>
-
-        <div class="builder-item">
-          <div class="builder-image">
-            <span>Photo<br>Coming Soon</span>
-          </div>
-          <div>
-            <h3>Centerpiece</h3>
-            <p>Floral arrangement for guest tables or key spaces.</p>
-          </div>
-          <div class="qty-controls" data-item="Centerpiece">
-            <button class="qty-button minus">−</button>
-            <span class="qty-number">0</span>
-            <button class="qty-button plus">+</button>
-          </div>
-        </div>
-
-        <div class="builder-item">
-          <div class="builder-image">
-            <span>Petite Ground Florals<br>Photo Coming Soon</span>
-          </div>
-          <div>
-            <h3>Ground Florals — Petite</h3>
-            <p>A smaller floor floral moment for signage, aisle ends, or display areas.</p>
-          </div>
-          <div class="qty-controls" data-item="Ground Florals — Petite">
-            <button class="qty-button minus">−</button>
-            <span class="qty-number">0</span>
-            <button class="qty-button plus">+</button>
-          </div>
-        </div>
-
-        <div class="builder-item">
-          <div class="builder-image">
-            <span>Signature Ground Florals<br>Photo Coming Soon</span>
-          </div>
-          <div>
-            <h3>Ground Florals — Signature</h3>
-            <p>A fuller ground floral piece for ceremony, signage, or photo moments.</p>
-          </div>
-          <div class="qty-controls" data-item="Ground Florals — Signature">
-            <button class="qty-button minus">−</button>
-            <span class="qty-number">0</span>
-            <button class="qty-button plus">+</button>
-          </div>
-        </div>
-
-        <div class="builder-item">
-          <div class="builder-image">
-            <span>Grand Ground Florals<br>Photo Coming Soon</span>
-          </div>
-          <div>
-            <h3>Ground Florals — Grand</h3>
-            <p>A larger-scale statement floral piece for elevated installations or focal areas.</p>
-          </div>
-          <div class="qty-controls" data-item="Ground Florals — Grand">
-            <button class="qty-button minus">−</button>
-            <span class="qty-number">0</span>
-            <button class="qty-button plus">+</button>
-          </div>
         </div>
 
       </div>
+
     </div>
 
+    <!-- CUSTOM -->
+
     <div class="custom-card">
+
       <p class="eyebrow">Custom Events</p>
+
       <h2>Don’t see the right fit?</h2>
+
       <p>
-        Every event is different. If you don’t see the right package listed,
-        we’d be happy to help create something tailored to your celebration,
-        style, and event needs.
+        Every event is different. We’d be happy to help create something tailored
+        to your celebration, style, and event needs.
       </p>
 
       <div class="button-row" style="justify-content:center;">
-        <a class="button dark" href="contact.html">Request a Custom Package</a>
+        <a class="button dark" href="contact.html">
+          Request a Custom Package
+        </a>
       </div>
+
     </div>
 
   </div>
+
 </section>
 
 <div class="quote-preview" id="quotePreview">
+
   <div class="quote-inner">
+
     <div>
       <strong>Your Quote</strong>
-      <p class="quote-items" id="quoteItems">No selections added yet.</p>
+      <p class="quote-items" id="quoteItems">
+        No selections added yet.
+      </p>
     </div>
 
-    <a class="button" href="quote.html" style="color:white;border-color:white;">Continue to Quote</a>
+    <a class="button" href="quote.html" style="color:white;border-color:white;">
+      Continue to Quote
+    </a>
+
   </div>
+
 </div>
 
 <footer>
+
   <div class="footer-inner">
+
     <div class="footer-brand">
       <h2>Theodoro Collective</h2>
       <p>Elevated florals and event details.</p>
     </div>
 
-    <div class="footer-links">
-      <a href="#" aria-label="Instagram">
-        <svg viewBox="0 0 24 24">
-          <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.4a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
-        </svg>
-      </a>
-
-      <a href="#" aria-label="TikTok">
-        <svg viewBox="0 0 24 24">
-          <path d="M16.5 3c.4 2.4 1.8 3.9 4 4.1v3.2c-1.6.1-3-.4-4-1.2v6.5c0 3.4-2.2 5.4-5.4 5.4-3.1 0-5.1-2-5.1-4.8 0-3 2.2-4.9 5.6-5 .3 0 .6 0 .9.1v3.3c-.3-.1-.6-.1-.9-.1-1.4 0-2.3.7-2.3 1.8s.8 1.8 1.9 1.8c1.3 0 2.1-.8 2.1-2.4V3h3.2Z"/>
-        </svg>
-      </a>
-
-      <a href="#" aria-label="Facebook">
-        <svg viewBox="0 0 24 24">
-          <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3h2.8v8h3.4Z"/>
-        </svg>
-      </a>
-    </div>
   </div>
 
   <div class="footer-bottom">
     © 2026 Theodoro Collective. All rights reserved.
   </div>
+
 </footer>
 
 <script>
+
 const toggle=document.querySelector(".nav-toggle");
 const nav=document.querySelector(".nav");
 
 toggle.onclick=()=>nav.classList.toggle("open");
 
-localStorage.removeItem("selectedCart");
+let selectedPackage=null;
+let selectedAddons=[];
 
-let selectedPackage = null;
-let selectedAddons = [];
+const packageButtons=document.querySelectorAll(".select-package");
+const quotePreview=document.getElementById("quotePreview");
+const quoteItems=document.getElementById("quoteItems");
 
-const packageButtons = document.querySelectorAll(".select-package");
-const quotePreview = document.getElementById("quotePreview");
-const quoteItems = document.getElementById("quoteItems");
-const filterButtons = document.querySelectorAll(".filter-button");
-const packageCategories = document.querySelectorAll(".package-category");
-const qtyControls = document.querySelectorAll(".qty-controls");
+const eventFilter=document.getElementById("eventFilter");
+const packageCategories=document.querySelectorAll(".package-category");
+
+const qtyControls=document.querySelectorAll(".qty-controls");
 
 function updateQuotePreview(){
-  const weddingItems = [];
 
-  qtyControls.forEach(control => {
-    const item = control.dataset.item;
-    const qty = parseInt(control.querySelector(".qty-number").textContent);
+  const weddingItems=[];
 
-    if(qty > 0){
+  qtyControls.forEach(control=>{
+
+    const item=control.dataset.item;
+    const qty=parseInt(control.querySelector(".qty-number").textContent);
+
+    if(qty>0){
       weddingItems.push(`${item} x${qty}`);
     }
+
   });
 
-  selectedAddons = weddingItems;
+  selectedAddons=weddingItems;
 
-  if(!selectedPackage && selectedAddons.length === 0){
+  if(!selectedPackage && selectedAddons.length===0){
     quotePreview.classList.remove("active");
     return;
   }
 
   quotePreview.classList.add("active");
 
-  const items = [];
+  const items=[];
 
   if(selectedPackage){
     items.push(selectedPackage);
   }
 
-  selectedAddons.forEach(item => items.push(item));
+  selectedAddons.forEach(item=>items.push(item));
 
-  quoteItems.textContent = items.join(" + ");
+  quoteItems.textContent=items.join(" + ");
 
   localStorage.setItem("selectedPackage", selectedPackage || "");
   localStorage.setItem("selectedAddons", JSON.stringify(selectedAddons));
+
 }
 
-packageButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    selectedPackage = button.dataset.package;
+packageButtons.forEach(button=>{
 
-    packageButtons.forEach(btn => {
-      btn.textContent = "Add to Quote";
+  button.addEventListener("click",()=>{
+
+    selectedPackage=button.dataset.package;
+
+    packageButtons.forEach(btn=>{
+      btn.textContent="Add to Quote";
       btn.classList.remove("dark");
     });
 
-    button.textContent = "Added";
+    button.textContent="Added";
     button.classList.add("dark");
 
     updateQuotePreview();
+
   });
+
 });
 
-qtyControls.forEach(control => {
-  const minus = control.querySelector(".minus");
-  const plus = control.querySelector(".plus");
-  const number = control.querySelector(".qty-number");
+qtyControls.forEach(control=>{
 
-  plus.addEventListener("click", () => {
-    number.textContent = parseInt(number.textContent) + 1;
+  const minus=control.querySelector(".minus");
+  const plus=control.querySelector(".plus");
+  const number=control.querySelector(".qty-number");
+
+  plus.addEventListener("click",()=>{
+
+    number.textContent=parseInt(number.textContent)+1;
+
     updateQuotePreview();
+
   });
 
-  minus.addEventListener("click", () => {
-    const current = parseInt(number.textContent);
-    if(current > 0){
-      number.textContent = current - 1;
+  minus.addEventListener("click",()=>{
+
+    const current=parseInt(number.textContent);
+
+    if(current>0){
+      number.textContent=current-1;
       updateQuotePreview();
     }
+
   });
+
 });
 
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
+eventFilter.addEventListener("change",()=>{
 
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
+  const filter=eventFilter.value;
 
-    packageCategories.forEach(category => {
-      if(filter === "all" || category.dataset.category === filter){
-        category.style.display = "block";
-      } else {
-        category.style.display = "none";
-      }
-    });
+  packageCategories.forEach(category=>{
+
+    if(filter==="all" || category.dataset.category===filter){
+      category.style.display="block";
+    } else {
+      category.style.display="none";
+    }
+
   });
+
 });
+
 </script>
 
 </body>
